@@ -1,0 +1,22 @@
+
+body, html {
+    height: 100%;
+}
+
+.bg-img{
+    background-image: url(couple_coffee.jpeg);
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    
+}
+
+.hero-text{
+    color: white;
+}
+
+.pls{
+    background-color: #ff3860
+}
