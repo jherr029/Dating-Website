@@ -1,22 +1,38 @@
-
-body, html {
+body,
+html {
     height: 100%;
 }
 
-.bg-img{
+.bg-img {
     background-image: url(couple_coffee.jpeg);
-    
+
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    
+
 }
 
-.hero-text{
+.hero-text {
     color: white;
 }
 
-.pls{
+.pinkText {
+    color: #ff3860;
+}
+
+.pls {
     background-color: #ff3860
+}
+
+.borderTop {
+    border-top: 1.5px solid white;
+}
+
+.borderBottom {
+    border-bottom: 1.5 solid white;
+}
+
+.whiteBanner {
+    background-color: white;
 }
