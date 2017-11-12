@@ -13,12 +13,16 @@ html {
 
 }
 
-.hero-text {
+.whiteText {
     color: white;
 }
 
 .pinkText {
     color: #ff3860;
+}
+
+.pinkBg{
+    background-color: #ff3860;
 }
 
 .pls {
@@ -31,6 +35,13 @@ html {
 
 .borderBottom {
     border-bottom: 1.5 solid white;
+}
+
+.allBorders{
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    border-top: 1px solid white;
 }
 
 .whiteBanner {
