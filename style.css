@@ -25,8 +25,10 @@ html {
     background-color: #ff3860;
 }
 
-.pls {
-    background-color: #ff3860
+/* #fd484b */
+
+.grayBg{
+    background-color: #ffe9ed;
 }
 
 .borderTop {
@@ -34,7 +36,7 @@ html {
 }
 
 .borderBottom {
-    border-bottom: 1.5 solid white;
+    border-bottom: 1.5px solid white;
 }
 
 .allBorders{
@@ -49,5 +51,10 @@ html {
 }
 
 .orangeBg{
-    background-color: #ff7438;
+    background-color: #ff879f;
+}
+
+.goldBorder
+{
+    border: 1.5px solid #ffcc66
 }
