@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Please Date Me</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.4/angular.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body bgcolor="#fd484b">
+   <!-- maybe add section here -->
+    <div class="hero is-danger is-bold">
+       <div class="hero-body">
+           <div class="container">
+               <h1 class="title">
+                   Create an account
+               </h1>
+               <h2 class="subtitle">
+                   Change me
+               </h2>
+           </div>
+       </div>
+       <div class="hero-foot borderBottom"></div>
+    </div>
+
+    <div class="hero">
+        <div class="hero-head">
+            <br><br><br><br>
+        </div>
+        <div class="hero-body">
+
+
+            <div class="box">
+
+                <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control">
+                        <input class="input" ng-model="yourName" type="text" placeholder="Text input">
+                        <h1>Hello {{yourName}}!</h1>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Username</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is success" type="text" placeholder="Text input" value="bulma">
+                        <span class="icon is-small is-left">
+                            <i class="fa fa-user"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fa fa-check"></i>
+                        </span>
+                    </div>
+                    <p class="help is-success">This username is avaliable</p>
+                </div>
+
+
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is danger" type="email" placeholder="Email input " value="hello@">
+                        <span class="icon is-small is-left">
+                            <i class="fa fa-envelope"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fa fa-warning"></i>
+                        </span>
+                    </div>
+                    <p class="help is-danger">This email is invalid</p>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
