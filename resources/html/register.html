@@ -16,74 +16,78 @@
 </head>
 
 
-<body bgcolor="#fd484b">
+<body>
    <!-- maybe add section here -->
-    <div class="hero is-danger is-bold">
-       <div class="hero-body">
-           <div class="container">
-               <h1 class="title">
-                   Create an account
-               </h1>
-               <h2 class="subtitle">
-                   Change me
-               </h2>
-           </div>
-       </div>
-       <div class="hero-foot borderBottom"></div>
-    </div>
+    <div class="hero is-danger is-medium is-bold">
+      <div class="hero-head borderBottom">
+         <nav class="navbar">
+             <div class="container">
+                 <div class="navbar-brand">
+                     <a class="navbar-item">
+                         <img src="../images/cat.png" alt="logo">
+                     </a>
+                     <span class="navbar-burger burger" data-target="navbarMenuHeroB">
+                         <span></span>
+                         <span></span>
+                         <span></span>
+                     </span>
+                 </div>
+                 <div id="navbarMenuHeroB" class="navbar-menu">
+                     <div class="navbar-end">
+                         <a class="navbar-item">
+                             <a href="index.html" class="navbar-item">
+                             Home
+                             </a>
+                         </a>
 
-    <div class="hero">
+                     </div>
+                 </div>
+             </div>
+         </nav>
+
+      </div>
+    </div>
+      <div class="hero">
         <div class="hero-head">
             <br><br><br><br>
         </div>
-        <div class="hero-body">
+       <div class="hero-body">
 
+           <div class="container">
+
+            <div class="container">
+              <h2 class="title is-size-2 is-primary" style="color: #ff3860">
+                  Register
+              </h2>
+                  <br>
+            </div>
 
             <div class="box">
 
                 <div class="field">
-                    <label class="label">Name</label>
-                    <div class="control">
-                        <input class="input" ng-model="yourName" type="text" placeholder="Text input">
-                        <h1>Hello {{yourName}}!</h1>
+                    <div class="conrol">
+                        <input class="input is-danger" type="email" placeholder="Username or email">
                     </div>
                 </div>
 
                 <div class="field">
-                    <label class="label">Username</label>
-                    <div class="control has-icons-left has-icons-right">
-                        <input class="input is success" type="text" placeholder="Text input" value="bulma">
-                        <span class="icon is-small is-left">
-                            <i class="fa fa-user"></i>
-                        </span>
-                        <span class="icon is-small is-right">
-                            <i class="fa fa-check"></i>
-                        </span>
+                    <div class="conrol">
+                        <input class="input is-danger" type="password" placeholder="Password">
                     </div>
-                    <p class="help is-success">This username is avaliable</p>
                 </div>
 
-
-                <div class="field">
-                    <label class="label">Email</label>
-                    <div class="control has-icons-left has-icons-right">
-                        <input class="input is danger" type="email" placeholder="Email input " value="hello@">
-                        <span class="icon is-small is-left">
-                            <i class="fa fa-envelope"></i>
-                        </span>
-                        <span class="icon is-small is-right">
-                            <i class="fa fa-warning"></i>
-                        </span>
+                <div class="columns">
+                    <div class="column">
+                        <input class="button is-danger" type="submit" value="Login">
                     </div>
-                    <p class="help is-danger">This email is invalid</p>
                 </div>
 
             </div>
+           </div>
 
 
-        </div>
+       </div>
     </div>
-
 
 
 </body>
