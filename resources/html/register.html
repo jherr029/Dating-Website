@@ -46,10 +46,12 @@
         function statusChangeCallback(response){
             if(response.status === 'connected'){
                 console.log('logged in')
+                setElements(true);
                 testAPI();
             }
 
             else{
+                setElements(false);
                 console.log('not logged')
             }
         }
@@ -93,35 +95,47 @@
             document.getElementById('profile').innerHTML = profile;
         }
 
+        function setElements(isLoggedIn){
+            if(isLoggedIn){
+                document.getElementById('profile').style.display = 'block';
+                document.getElementById('fb-btn').style.display = 'none';
+            }
+
+            else{
+                document.getElementById('profile').style.display = 'none';
+                document.getElementById('fb-btn').style.display = 'block';               
+            }
+        }
+
     </script>
 
    <!-- maybe add section here -->
     <div class="hero is-danger is-medium is-bold">
       <div class="hero-head borderBottom">
-         <nav class="navbar">
+         <header class="navbar">
              <div class="container">
                  <div class="navbar-brand">
                      <a class="navbar-item">
                          <img src="../images/cat.png" alt="logo">
                      </a>
-                     <span class="navbar-burger burger" data-target="navbarMenuHeroB">
+                     <button class="button navbar-burger" data-target="navbarMenuHeroC">
                          <span></span>
                          <span></span>
                          <span></span>
-                     </span>
+                     </button>
                  </div>
-                 <div id="navbarMenuHeroB" class="navbar-menu">
+                 <div id="navbarMenuHeroC" class="navbar-menu">
                      <div class="navbar-end">
-                         <a class="navbar-item">
-                             <a href="index.html" class="navbar-item">
+                         <a class="navbar-item is-active" href="index.html">
                              Home
-                             </a>
                          </a>
-
+                         <a class="navbar-item is-active" href="index.html">
+                            Exit
+                        </a>
                      </div>
                  </div>
              </div>
-         </nav>
+            </header>
 
       </div>
     </div>
