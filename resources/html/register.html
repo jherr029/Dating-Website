@@ -17,6 +17,84 @@
 
 
 <body>
+
+
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+            appId      : '1407153156078041',
+            cookie     : true,
+            xfbml      : true,
+            version    : 'v2.11'
+            });
+            
+            FB.getLoginStatus(function(response) {
+               statusChangeCallback(response);
+            });
+   
+            
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        function statusChangeCallback(response){
+            if(response.status === 'connected'){
+                console.log('logged in')
+                testAPI();
+            }
+
+            else{
+                console.log('not logged')
+            }
+        }
+
+        function checkLoginState() {
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+        }
+
+        function testAPI(){
+            FB.api('me?fields=id,name,email,birthday', function(response){
+                if(response && !response.error ){
+                    console.log(response);
+                    buildProfile(response);
+                }
+            })
+        }
+
+        function buildProfile(user){
+            console.log('testing');
+
+            let profile = `
+                <div class="columns is-warning">
+                    <div class="column">
+                        ${user.name}
+                    </div>
+                    <div class="column">
+                        ${user.id}
+                    </div>
+                    <div class="column">
+                        ${user.email}
+                    </div>
+                    <div class="column">
+                        ${user.birthday}
+                    </div>                    
+                </div>
+            `;
+        
+
+            document.getElementById('profile').innerHTML = profile;
+        }
+
+    </script>
+
    <!-- maybe add section here -->
     <div class="hero is-danger is-medium is-bold">
       <div class="hero-head borderBottom">
@@ -88,7 +166,11 @@
                     </div>
                 </div>
 
+                <fb:login-button id="fb-btn" scope="public_profile,email,user_birthday" onlogin="checkLoginState();">
+                    </fb:login-button>
+
             </div>
+                <div id="profile"></div>
            </div>
 
 
