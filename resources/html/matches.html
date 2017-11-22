@@ -19,15 +19,15 @@
 
   <section>
     <div class="hero">
-      <div class="container">
-        <nav class="navbar" role="navigation" aria-label="main navigation">
+        <nav class="navbar">
+          <div class="container">
           <div class="navbar-brand">
           
             <a href="" class="navbar-item pinkText">
               PlsDate
             </a>
 
-          <span class="navbar-burger burger" data-target="navbarMenuHeroC">
+            <span class="navbar-burger burger" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');" data-target="navbarMenuHeroC">
             <span></span>
             <span></span>
             <span></span>
@@ -36,13 +36,18 @@
 
           <div id="navbarMenuHeroC" class="navbar-menu">
             <div class="navbar-end">
+              <a href="profile.html" class="navbar-item pinkText">
+                Settings
+              </a> 
+              <div class="navbar-end">
               <a href="index.html" class="navbar-item pinkText">
                 Logout
               </a> 
+              
             </div>
           </div>
+        </div>
         </nav>
-      </div>
     </div>
   </section>
 
@@ -74,7 +79,7 @@
           <div class="box">
               <div class="card">
                   <div class="card-image">
-                    <figure class="image is-4by3">
+                    <figure class="image is-3by2">
                       <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
                     </figure>
                   </div>
@@ -87,13 +92,12 @@
                       </div>
                       <div class="media-content">
                         <p class="title is-4">John Smith</p>
-                        <p class="subtitle is-6">@johnsmith</p>
+                        <p class="subtitle is-6">Age</p>
                       </div>
                     </div>
                 
                     <div class="content">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                      Profile info. <a>@bulmaio</a>.
                       <a href="#">#css</a> <a href="#">#responsive</a>
                       <br>
                       <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
@@ -108,3 +112,6 @@
 
 </body>
 </html>
+
+
+<!--image upload and positioning-->

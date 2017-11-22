@@ -48,6 +48,7 @@
                 console.log('logged in')
                 setElements(true);
                 testAPI();
+                window.location.href = 'profile.html'
             }
 
             else{
@@ -124,7 +125,7 @@
                          <span></span>
                      </button>
                  </div>
-                 <div id="navbarMenuHeroC" class="navbar-menu">
+                 <span class="navbar-burger burger" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');" data-target="navbarMenuHeroC">
                      <div class="navbar-end">
                          <a class="navbar-item is-active" href="index.html">
                              Home

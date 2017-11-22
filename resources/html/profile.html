@@ -21,14 +21,15 @@
 <body>
 
     <div class="hero">
+        
+        <nav class="navbar">
         <div class="container">
-        <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item pinkText">
                     PlsDate
                 </a>
 
-            <span class="navbar-burger burger" data-target="navbarMenuHeroC">
+            <span class="navbar-burger burger" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');" data-target="navbarMenuHeroC">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -37,14 +38,19 @@
 
             <div id="navbarMenuHeroC" class="navbar-menu">
                 <div class="navbar-end">
-                    <a href="index.html" class="navbar-item pinkText">
-                        Home
+                    <a href="matches.html" class="navbar-item pinkText">
+                        Matches
                     </a>
+
+                    <a href="matches.html" class="navbar-item pinkText">
+                        Logout
+                    </a>
+
                 </div>
             </div>
-
-        </nav>
         </div>
+        </nav>
+        
     </div>
 
     <div class="hero is-bold is-danger">
@@ -65,10 +71,10 @@
                 <div class="container">
                     <ul>
                         <li class="is-active"><a>Overview</a></li>
-                        <li><a>Basic Info</a></li>
-                        <li><a>Attributes</a></li>
-                        <li><a>Likes and Dislikes</a></li>
-                        <li><a>About me</a></li>
+                        <li><a href="#basicInfo">Basic Info</a></li>
+                        <li><a href="#attributes">Attributes</a></li>
+                        <li><a href="#likesDis">Likes and Dislikes</a></li>
+                        <li><a href="#aboutMe">About me</a></li>
                     </ul>
                 </div>
             </nav>
@@ -83,7 +89,7 @@
         <br><br><br><br>
 
         <div class="container">
-            <div class="box">
+            <div id="basicInfo" class="box">
                 <h1 class="title pinkText">
                     Basic information
                 </h1>
@@ -95,6 +101,8 @@
                     <input class="input is-danger" type="name" placeholder="First Name">
 
                 </div>
+
+                <h3 class="subtitle pinkText">Date of birth</h3>
 
                 <div class="field">
                     <div class="select is-danger">
@@ -136,11 +144,22 @@
                     </div>
                 </div>
 
-                <div class="select is-danger">
 
+                <h3 class="subtitle pinkText">What is your sex</h3>
+                <div class="select is-danger">
                     <select>
-                        <option value="male">man</option>
-                        <option value="woman">woman</option>
+                        <option value="male">male</option>
+                        <option value="woman">female</option>
+                        </select>
+                </div>
+
+                <br>
+
+                <h3 class="subtitle pinkText">Are you interested in</h3>
+                <div class="select is-danger">
+                    <select>
+                        <option value="male">men</option>
+                        <option value="woman">women</option>
                         </select>
                 </div>
 
@@ -151,7 +170,7 @@
         <br><br>
 
         <div class="container">
-            <div class="box">
+            <div id="attributes" class="box">
                 <h1 class="title pinkText">
                         Attributes
                 </h1>
@@ -263,7 +282,7 @@
         <br><br>
 
         <div class="container">
-            <div class="box">
+            <div id="likesDis" class="box">
                 <h1 class="title pinkText">Likes</h1>
                 <hr>
 
@@ -288,7 +307,7 @@
         <br><br>
 
         <div class="container">
-            <div class="box">
+            <div id="aboutMe" class="box">
                 <h1 class="title pinkText">About me</h1>
                 <hr>
 
