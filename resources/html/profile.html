@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
+
+    <link rel="stylesheet" href="/resources/css/bulma-radio-checkbox.css">
 
     <link rel="stylesheet" href="/resources/css/style.css">
 
@@ -71,6 +73,8 @@
                 <h1 class="title pinkText">
                     Basic information
                 </h1>
+
+                <hr>
 
                 <div class="field">
 
@@ -134,53 +138,110 @@
 
         <div class="container">
             <div class="box">
-                <div class="field">
-                    <h1 class="title pinkText">
+                <h1 class="title pinkText">
                         Attributes
-                    </h1>
+                </h1>
 
-                    <label class="checkbox">
-                        <input type="checkbox">
-                        Artsy
-                    </label>
+                <hr>
 
-                    <label class="checkbox">
-                        <input type="checkbox">
-                        Nerdy
-                    </label>
+                <div class="field">
 
-                    <label class="checkbox">
-                        <input type="checkbox">
-                        Sportsy
-                    </label>
+                    <div class="columns">
+                        <div class="column">
+                                <p class="control">
+                                        <div class="b-checkbox is-danger is-circular">
+                                            <input id="checkbox" class="styled" type="checkbox">
+                                            <label for="checkbox">
+                                                Artsy
+                                            </label>
+                                        </div>
+                                    </p>
+                
+                                    <p class="control">
+                                        <div class="b-checkbox is-danger is-circular">
+                                            <input id="checkbox2" class="styled" type="checkbox">
+                                            <label for="checkbox2">
+                                                Nerdy
+                                            </label>
+                                        </div>
+                                    </p>
+                                    
+                                    <p class="control">
+                                        <div class="b-checkbox is-danger is-circular">
+                                            <input id="checkbox3" class="styled" type="checkbox">
+                                            <label for="checkbox3">
+                                                Sportsy
+                                            </label>
+                                        </div>
+                                    </p>
+                        </div>
+
+                        <div class="column">
+                                <p class="control">
+                                        <div class="b-checkbox is-danger is-circular">
+                                            <input id="checkbox4" class="styled" type="checkbox">
+                                            <label for="checkbox4">
+                                                Funny
+                                            </label>
+                                        </div>
+                                    </p>
+                
+                
+                                    <p class="control">
+                                        <div class="b-checkbox is-danger is-circular">
+                                            <input id="checkbox5" class="styled" type="checkbox">
+                                            <label for="checkbox5">
+                                                Foody
+                                            </label>
+                                        </div>
+                                    </p>
+                
+                
+                                    <p class="control">
+                                        <div class="b-checkbox is-danger is-circular">
+                                            <input id="checkbox6" class="styled" type="checkbox">
+                                            <label for="checkbox6">
+                                                Nerdy
+                                            </label>
+                                        </div>
+                                    </p>
+                        </div>
+
+                        <div class="column">
+                                <p class="control">
+                                        <div class="b-checkbox is-danger is-circular">
+                                            <input id="checkbox7" class="styled" type="checkbox">
+                                            <label for="checkbox7">
+                                                Kinky
+                                            </label>
+                                        </div>
+                                    </p>
+                
+                                    <p class="control">
+                                        <div class="b-checkbox is-danger is-circular">
+                                            <input id="checkbox8" class="styled" type="checkbox">
+                                            <label for="checkbox8">
+                                                Shy
+                                            </label>
+                                        </div>
+                                    </p>    
+                
+                
+                                    <p class="control">
+                                        <div class="b-checkbox is-danger is-circular">
+                                            <input id="checkbox9" class="styled" type="checkbox">
+                                            <label for="checkbox9">
+                                                Quirky
+                                            </label>
+                                        </div>
+                                    </p>
+                        </div>
+                    </div>
+
+                   
 
 
-                    <label class="checkbox">
-                        <input type="checkbox">
-                        Funny
-                    </label>
-
-                    <label class="checkbox">
-                        <input type="checkbox">
-                        Foody
-                    </label>
-
-                    <label class="checkbox">
-                        <input type="checkbox">
-                        Kinky
-                    </label>
-
-                    <label class="checkbox">
-                        <input type="checkbox">
-                        Shy
-                    </label>
-
-
-                    <label class="checkbox">
-                        <input type="checkbox">
-                        Quirky
-                    </label>
-
+                    
                 </div>
             </div>
         </div>
@@ -190,20 +251,21 @@
         <div class="container">
             <div class="box">
                 <h1 class="title pinkText">Likes</h1>
+                <hr>
+
                 <div class="field">
                     <div class="control">
-                        <textarea class="textarea is-danger" type="text" placeholder="Write about yourself">
-                        </textarea>
+                        <textarea class="textarea is-danger" type="text" placeholder="What are things that you like"></textarea>
                     </div>
                 </div>
                 
                 <br>
 
                 <h1 class="title pinkText">Dislikes</h1>
+                <hr>
                 <div class="field">
                     <div class="control">
-                        <textarea class="textarea is-danger" type="text" placeholder="Write about yourself">
-                        </textarea>
+                        <textarea class="textarea is-danger" type="text" placeholder="What are things that you dislike"></textarea>
                     </div>
                 </div>
             </div>
@@ -214,18 +276,24 @@
         <div class="container">
             <div class="box">
                 <h1 class="title pinkText">About me</h1>
+                <hr>
 
                 <div class="field">
                     <div class="control">
-                        <textarea class="textarea is-danger" type="text" placeholder="Write about yourself">
-                        </textarea>
+                        <textarea class="textarea is-danger" type="text" placeholder="Write about yourself"></textarea>
                     </div>
-                </div>
+                </div>                
             </div>
         </div>
 
         <br><br>
 
+        <div class="container">
+            <input class="button is-danger is-pulled-right" type="submit" value="Submit">
+            <br>
+        </div>
+
+        <br>
 
     </div>
 
