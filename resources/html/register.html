@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
 
     <link rel="stylesheet" href="/resources/css/style.css">
-
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 
@@ -176,14 +176,14 @@
                     </div>
                 </div>
 
-                <div class="columns">
-                    <div class="column">
-                        <input class="button is-danger is-pulled-right" type="submit" value="Submit">
-                    </div>
-                </div>
+        
+                <input class="button is-danger is-pulled-right" type="submit" value="Submit">
+            
 
                 <fb:login-button id="fb-btn" scope="public_profile,email,user_birthday" onlogin="checkLoginState();">
                     </fb:login-button>
+
+                <div class="g-recaptcha" data-sitekey="6LcCCzoUAAAAAEB-CskxIIdF4tbUjEzWIfBE0mRK"></div>
 
             </div>
                 <div id="profile"></div>
