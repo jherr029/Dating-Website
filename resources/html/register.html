@@ -13,6 +13,24 @@
 
     <link rel="stylesheet" href="/resources/css/style.css">
     <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+		apiKey: "AIzaSyBzP583ZXMjs_BKk1Kxnw9qHrtaZ7jq8Jg",
+		authDomain: "test-project-7b02a.firebaseapp.com",
+		databaseURL: "https://test-project-7b02a.firebaseio.com",
+		projectId: "test-project-7b02a",
+		storageBucket: "test-project-7b02a.appspot.com",
+		messagingSenderId: "916154302194"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+    
+    <script src="app.js"></script>
+
+
 </head>
 
 
@@ -160,24 +178,24 @@
                     <hr>
 
                     <div class="control">
-                        <input class="input is-danger" type="email" placeholder="Email">
+                        <input id="txtPassword" class="input is-danger" type="email" placeholder="Email">
                     </div>
                 </div>
 
                 <div class="field">
                     <div class="control">
-                        <input class="input is-danger" type="password" placeholder="Password">
+                        <input id="txtPassword" class="input is-danger" type="password" placeholder="Password">
                     </div>
                 </div>
 
                  <div class="field">
                     <div class="control">
-                        <input class="input is-danger" type="password" placeholder="Retype Password">
+                        <input id="txtPassword2" class="input is-danger" type="password" placeholder="Retype Password">
                     </div>
                 </div>
 
         
-                <input class="button is-danger is-pulled-right" type="submit" value="Submit">
+                <input onclick="saveFirebase()" class="button is-danger is-pulled-right" type="submit" value="Submit">
             
 
                 <fb:login-button id="fb-btn" scope="public_profile,email,user_birthday" onlogin="checkLoginState();">

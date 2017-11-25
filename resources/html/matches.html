@@ -17,11 +17,28 @@
 
     <link rel="stylesheet" href="/resources/css/style.css">
 
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+      apiKey: "AIzaSyBzP583ZXMjs_BKk1Kxnw9qHrtaZ7jq8Jg",
+      authDomain: "test-project-7b02a.firebaseapp.com",
+      databaseURL: "https://test-project-7b02a.firebaseio.com",
+      projectId: "test-project-7b02a",
+      storageBucket: "test-project-7b02a.appspot.com",
+      messagingSenderId: "916154302194"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="app.js"></script>
+
 </head>
 
 <body>
 
   <section>
+    <script>MatchMaking()</script>
+
     <div class="hero">
         <nav class="navbar">
           <div class="container">
@@ -77,6 +94,16 @@
     </div>
   </section>
 
+
+  <script>
+    window.onload = function(){
+        // replace ten with var for percentage
+        var percentVar = 10 + '%'
+    
+        document.getElementById('percent').innerHTML = percentVar;
+    };
+  </script>
+
   <section class="grayBg">
       <br>
       <div class="container">
@@ -84,19 +111,19 @@
               <div class="card">
                   <div class="card-image">
                     <figure class="image is-3by2">
-                      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                      <img src="https://raw.githubusercontent.com/jherr029/Dating-Website/master/resources/images/cat.png" alt="Placeholder image">
                     </figure>
                   </div>
                   <div class="card-content">
                     <div class="media">
                       <div class="media-left">
-                        <figure class="image is-48x48">
-                          <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                        </figure>
+                        
+                        <h1 id="percent" class="pinkText is-size-1"></h1>
+
                       </div>
                       <div class="media-content">
-                        <p class="title is-4">John Smith</p>
-                        <p class="subtitle is-6">Age</p>
+                        <p id="nameHolder" class="title is-4"></p>
+                        <p id="nummatch" class="subtitle is-6">Age</p>
                       </div>
                     </div>
                 
@@ -111,13 +138,10 @@
           </div>
       </div>
 
-      <script>
- 
-
-      </script>
-
-      <div id="data-container"></div>
-      <div id="pagination-container"></div>
+      <div class="container">
+          <a onclick="prevpage()" class="button">Previous</a>
+          <a onclick="nextpage()"class="button">Next</a>
+        </div>
 
   </section>
 

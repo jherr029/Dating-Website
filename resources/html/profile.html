@@ -16,6 +16,57 @@
 
     <link rel="stylesheet" href="/resources/css/style.css">
 
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBzP583ZXMjs_BKk1Kxnw9qHrtaZ7jq8Jg",
+        authDomain: "test-project-7b02a.firebaseapp.com",
+        databaseURL: "https://test-project-7b02a.firebaseio.com",
+        projectId: "test-project-7b02a",
+        storageBucket: "test-project-7b02a.appspot.com",
+        messagingSenderId: "916154302194"
+      };
+      firebase.initializeApp(config);
+      
+      window.onload=function(){
+        var fileButton = document.getElementById("fileButton");
+          //listen for file selection
+          
+          if(fileButton){
+            fileButton.addEventListener('change', function(e){
+                //get file
+                var file = e.target.files[0];
+                //create storage ref
+                //upload file
+                var task = firebase.storage().ref('profile_pic/'+ file.name).put(file);
+                
+                
+    
+                //getting pic from 
+                /*var storage = firebase.storage();
+                var storageRef = storage.ref();
+                var imageRef = storageRef.child('profile_pic');
+                var spaceRef= storageRef.child('profile_pic/' + file.name);
+                //returns filepath:
+                var filepath = spaceRef.fullPath;
+    
+              storageRef.child('profile_pic/' + file.name).getDownloadURL().then(function(url) {
+              var img = document.getElementById('myimg');
+              img.src = url;
+              }).catch(function(error) {
+                  // Handle any errors
+              });*/
+           });
+         }
+    }
+      </script>
+      
+      
+        
+        <script src="app.js"></script>
+    
+
 </head>
 
 <body>
@@ -98,12 +149,12 @@
 
                 <div class="field">
 
-                    <input class="input is-danger" type="name" placeholder="First Name">
+                    <input id="name" class="input is-danger" type="name" placeholder="First Name">
 
                 </div>
 
                 <h3 class="subtitle pinkText">Date of birth</h3>
-                    <input class="input is-danger" type="name" placeholder="Birthday XX/XX/XXXX">
+                    <input id="Birthday" class="input is-danger" type="name" placeholder="Birthday XX/XX/XXXX">
                 <div class="field">
              
                 </div>
@@ -111,7 +162,7 @@
 
                 <h3 class="subtitle pinkText">What is your sex</h3>
                 <div class="select is-danger">
-                    <select>
+                    <select id="Sex">
                         <option value="male">male</option>
                         <option value="woman">female</option>
                         </select>
@@ -121,7 +172,7 @@
 
                 <h3 class="subtitle pinkText">Are you interested in</h3>
                 <div class="select is-danger">
-                    <select>
+                    <select id="Pref">
                         <option value="male">men</option>
                         <option value="woman">women</option>
                         </select>
@@ -167,7 +218,7 @@
                                         <div class="b-checkbox is-danger is-circular">
                                             <input id="checkbox3" class="styled" type="checkbox">
                                             <label for="checkbox3">
-                                                Sportsy
+                                                Sporty
                                             </label>
                                         </div>
                                     </p>
@@ -198,7 +249,7 @@
                                         <div class="b-checkbox is-danger is-circular">
                                             <input id="checkbox6" class="styled" type="checkbox">
                                             <label for="checkbox6">
-                                                Nerdy
+                                                Kinky
                                             </label>
                                         </div>
                                     </p>
@@ -209,7 +260,7 @@
                                         <div class="b-checkbox is-danger is-circular">
                                             <input id="checkbox7" class="styled" type="checkbox">
                                             <label for="checkbox7">
-                                                Kinky
+                                                Quirky
                                             </label>
                                         </div>
                                     </p>
@@ -218,7 +269,7 @@
                                         <div class="b-checkbox is-danger is-circular">
                                             <input id="checkbox8" class="styled" type="checkbox">
                                             <label for="checkbox8">
-                                                Shy
+                                                Messy
                                             </label>
                                         </div>
                                     </p>    
@@ -228,7 +279,7 @@
                                         <div class="b-checkbox is-danger is-circular">
                                             <input id="checkbox9" class="styled" type="checkbox">
                                             <label for="checkbox9">
-                                                Quirky
+                                                Clumsy
                                             </label>
                                         </div>
                                     </p>
@@ -252,7 +303,7 @@
 
                 <div class="field">
                     <div class="control">
-                        <textarea class="textarea is-danger" type="text" placeholder="What are things that you like"></textarea>
+                        <textarea id="Likes" class="textarea is-danger" type="text" placeholder="What are things that you like"></textarea>
                     </div>
                 </div>
                 
@@ -262,7 +313,7 @@
                 <hr>
                 <div class="field">
                     <div class="control">
-                        <textarea class="textarea is-danger" type="text" placeholder="What are things that you dislike"></textarea>
+                        <textarea id="Dislikes" class="textarea is-danger" type="text" placeholder="What are things that you dislike"></textarea>
                     </div>
                 </div>
             </div>
@@ -277,7 +328,7 @@
 
                 <div class="field">
                     <div class="control">
-                        <textarea class="textarea is-danger" type="text" placeholder="Write about yourself"></textarea>
+                        <textarea id="AboutMe" class="textarea is-danger" type="text" placeholder="Write about yourself"></textarea>
                     </div>
                 </div>                
             </div>
@@ -286,11 +337,26 @@
         <br><br>
 
         <div class="container">
-            <input class="button is-danger is-pulled-right" type="submit" value="Submit">
+			<div class="box">
+				<div class="field">
+					
+				 <img id = "myimg" alt = 'No Profile Pic'>
+				  <div class="file is-danger has-name is-boxed">
+					<label class="file-label">
+					    <input type="file" value="upload" id="fileButton"></input>
+					  
+					</label>
+				  </div>
+				</div>
+			</div>
+        </div>
+
+        <div class="container">
+            <input onclick="setAttributes()" class="button is-danger is-pulled-right" type="submit" value="Submit">
             <br>
         </div>
 
-        <br>
+        <br><br>
 
     </div>
     </section>
