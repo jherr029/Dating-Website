@@ -12,6 +12,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
 
     <link rel="stylesheet" href="/resources/css/style.css">
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+
+    <script src="https://www.gstatic.com/firebasejs/ui/2.5.1/firebase-ui-auth__en.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/2.5.1/firebase-ui-auth.css" />
+
     <script src='https://www.google.com/recaptcha/api.js'></script>
 
     <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
@@ -26,7 +33,31 @@
 		messagingSenderId: "916154302194"
 	  };
 	  firebase.initializeApp(config);
-	</script>
+    </script>
+    
+
+
+    <script type="text/javascript">
+        // FirebaseUI config.
+        var uiConfig = {
+          signInSuccessUrl: 'profile.html',
+          signInOptions: [
+            // Leave the lines as is for the providers you want to offer your users.
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+            firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+            firebase.auth.EmailAuthProvider.PROVIDER_ID,
+          ],
+          // Terms of service url.
+          tosUrl: '<your-tos-url>'
+        };
+  
+        // Initialize the FirebaseUI Widget using Firebase.
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        // The start method will wait until the DOM is loaded.
+        ui.start('#firebaseui-auth-container', uiConfig);
+
+    </script>
     
     <script src="app.js"></script>
 
@@ -37,95 +68,24 @@
 <body class="grayBg">
 
 
-    <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-            appId      : '1407153156078041',
-            cookie     : true,
-            xfbml      : true,
-            version    : 'v2.11'
-            });
-            
-            FB.getLoginStatus(function(response) {
-               statusChangeCallback(response);
-            });
    
-            
-        };
-
-        (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
-        function statusChangeCallback(response){
-            if(response.status === 'connected'){
-                console.log('logged in')
-                setElements(true);
-                testAPI();
-                window.location.href = 'profile.html'
-            }
-
-            else{
-                setElements(false);
-                console.log('not logged')
-            }
-        }
-
-        function checkLoginState() {
-            FB.getLoginStatus(function(response) {
-                statusChangeCallback(response);
-            });
-        }
-
-        function testAPI(){
-            FB.api('me?fields=id,name,email,birthday', function(response){
-                if(response && !response.error ){
-                    console.log(response);
-                    buildProfile(response);
-                }
-            })
-        }
-
-        function buildProfile(user){
-            console.log('testing');
-
-            let profile = `
-                <div class="columns is-warning">
-                    <div class="column">
-                        ${user.name}
-                    </div>
-                    <div class="column">
-                        ${user.id}
-                    </div>
-                    <div class="column">
-                        ${user.email}
-                    </div>
-                    <div class="column">
-                        ${user.birthday}
-                    </div>                    
-                </div>
-            `;
+    <script>
+        var user = firebase.auth().currentUser;
         
+        if (user)
+        {
+            user.sendEmailVerification().then(function()
+            {
 
-            document.getElementById('profile').innerHTML = profile;
+            }).catch(function(error){
+
+            });
+            
         }
+        else
+        {
 
-        function setElements(isLoggedIn){
-            if(isLoggedIn){
-                document.getElementById('profile').style.display = 'block';
-                document.getElementById('fb-btn').style.display = 'none';
-            }
-
-            else{
-                document.getElementById('profile').style.display = 'none';
-                document.getElementById('fb-btn').style.display = 'block';               
-            }
         }
-
     </script>
 
    <!-- maybe add section here -->
@@ -178,34 +138,35 @@
                     <hr>
 
                     <div class="control">
-                        <input id="txtPassword" class="input is-danger" type="email" placeholder="Email">
+                        <input id="txtPassword" class="input is-danger" type="email" placeholder="Email" style="width: 400px">
                     </div>
                 </div>
 
                 <div class="field">
                     <div class="control">
-                        <input id="txtPassword" class="input is-danger" type="password" placeholder="Password">
+                        <input id="txtPassword" class="input is-danger" type="password" placeholder="Password" style="width: 400px">
                     </div>
                 </div>
 
                  <div class="field">
                     <div class="control">
-                        <input id="txtPassword2" class="input is-danger" type="password" placeholder="Retype Password">
+                        <input id="txtPassword2" class="input is-danger" type="password" placeholder="Retype Password" style="width: 400px">
                     </div>
                 </div>
-
+                
+                <div id="firebaseui-auth-container"></div>
+                
         
-                <input onclick="saveFirebase()" class="button is-danger is-pulled-right" type="submit" value="Submit">
-            
-
-                <fb:login-button id="fb-btn" scope="public_profile,email,user_birthday" onlogin="checkLoginState();">
-                    </fb:login-button>
+                <!--<input onclick="saveFirebase()" class="button is-danger" type="submit" value="Submit">-->
+                 <input onclick="send" class="button is-danger" type="submit" value="Submit">    
 
                 <div class="g-recaptcha" data-sitekey="6LcCCzoUAAAAAEB-CskxIIdF4tbUjEzWIfBE0mRK"></div>
 
             </div>
                 <div id="profile"></div>
            </div>
+
+           <div id="firebaseui-auth-container"></div>
 
 
        </div>

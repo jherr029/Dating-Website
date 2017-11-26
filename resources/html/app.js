@@ -36,10 +36,26 @@ function saveFirebase(){
 		
 			//store data into database		
 			var windowchangePromise = fb.child(userid + '/').set(data_to_save);
+
+			/*
+
 			windowchangePromise.then(function(firebaseUser){
 				window.location.href = "profile.html";
 			});
-		})
+
+			*/
+
+
+
+			var user = firebase.auth().currentUser;
+
+			user.sendEmailVerification().then(function()
+			{
+				
+			})
+
+
+			})
 		.catch(function(error){
 			alert('Email Taken');
 			console.log(error);
