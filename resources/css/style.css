@@ -3,6 +3,12 @@ html {
     height: 100%;
 }
 
+
+.fixed{
+    position: fixed;
+    bottom: 40px
+}
+
 .bg-img {
     background-image: url(../images/couple_coffee.jpeg);
 
@@ -13,11 +19,30 @@ html {
 
 }
 
+
+.centerpls {
+    width: 50%;
+    margin: 0 auto;
+}
+
 .topNav{
    border-top: 5px solid #ff3860;
    border-bottom: 1px solid #E6EAEE
 }
 
+.botNav{
+    border-bottom: 1px solid #E6EAEE
+}
+
+.cardHeaderBorder
+{
+    border-top: 1px solid #E6EAEE;
+    border-bottom: 1px solid #E6EAEE
+}
+
+.cardTopBorder{
+    border-top: 1px solid #E6EAEE
+}
 
 .whiteText {
     color: white;
