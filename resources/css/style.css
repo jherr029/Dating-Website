@@ -13,6 +13,12 @@ html {
 
 }
 
+.topNav{
+   border-top: 5px solid #ff3860;
+   border-bottom: 1px solid #E6EAEE
+}
+
+
 .whiteText {
     color: white;
 }
@@ -50,10 +56,6 @@ html {
 
 .whiteBanner {
     background-color: white;
-}
-
-.orangeBg{
-    background-color: #ff879f;
 }
 
 .goldBorder

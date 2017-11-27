@@ -1,0 +1,70 @@
+[debug] [2017-11-26T04:52:55.530Z] ----------------------------------------------------------------------
+[debug] [2017-11-26T04:52:55.532Z] Command:       /usr/bin/node /usr/local/bin/firebase serve --project test-project-7b02a
+[debug] [2017-11-26T04:52:55.532Z] CLI Version:   3.15.3
+[debug] [2017-11-26T04:52:55.532Z] Platform:      linux
+[debug] [2017-11-26T04:52:55.532Z] Node Version:  v8.9.1
+[debug] [2017-11-26T04:52:55.533Z] Time:          Sat Nov 25 2017 20:52:55 GMT-0800 (PST)
+[debug] [2017-11-26T04:52:55.533Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-26T04:52:55.542Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-26T04:52:55.542Z] > authorizing via signed-in user
+[debug] [2017-11-26T04:52:55.545Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/test-project-7b02a  
+ Sat Nov 25 2017 20:52:55 GMT-0800 (PST)
+[debug] [2017-11-26T04:52:56.147Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-26T04:52:56.153Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/test-project-7b02a/tokens  
+ Sat Nov 25 2017 20:52:56 GMT-0800 (PST)
+[debug] [2017-11-26T04:52:56.695Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/home/cero/Code/Date'...
+[info] 
+[debug] [2017-11-26T04:52:56.700Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/test-project-7b02a  
+ Sat Nov 25 2017 20:52:56 GMT-0800 (PST)
+[debug] [2017-11-26T04:52:57.166Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-26T04:52:57.166Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/916154302194/clients/_:getWebAppConfig  
+ Sat Nov 25 2017 20:52:57 GMT-0800 (PST)
+[debug] [2017-11-26T04:52:57.617Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-26T04:52:57.635Z] TypeError: Cannot read property 'public' of undefined
+    at Server.<anonymous> (/usr/local/lib/node_modules/firebase-tools/lib/serve/hosting.js:34:18)
+    at Object.onceWrapper (events.js:313:30)
+    at emitNone (events.js:106:13)
+    at Server.emit (events.js:208:7)
+    at emitListeningNT (net.js:1378:10)
+    at _combinedTickCallback (internal/process/next_tick.js:135:11)
+    at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2017-11-26T04:53:25.348Z] ----------------------------------------------------------------------
+[debug] [2017-11-26T04:53:25.352Z] Command:       /usr/bin/node /usr/local/bin/firebase serve --project test-project-7b02a --debug
+[debug] [2017-11-26T04:53:25.352Z] CLI Version:   3.15.3
+[debug] [2017-11-26T04:53:25.352Z] Platform:      linux
+[debug] [2017-11-26T04:53:25.352Z] Node Version:  v8.9.1
+[debug] [2017-11-26T04:53:25.352Z] Time:          Sat Nov 25 2017 20:53:25 GMT-0800 (PST)
+[debug] [2017-11-26T04:53:25.352Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-26T04:53:25.362Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-26T04:53:25.363Z] > authorizing via signed-in user
+[debug] [2017-11-26T04:53:25.366Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/test-project-7b02a  
+ Sat Nov 25 2017 20:53:25 GMT-0800 (PST)
+[debug] [2017-11-26T04:53:25.748Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-26T04:53:25.749Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/test-project-7b02a/tokens  
+ Sat Nov 25 2017 20:53:25 GMT-0800 (PST)
+[debug] [2017-11-26T04:53:26.260Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/home/cero/Code/Date'...
+[info] 
+[debug] [2017-11-26T04:53:26.263Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/test-project-7b02a  
+ Sat Nov 25 2017 20:53:26 GMT-0800 (PST)
+[debug] [2017-11-26T04:53:26.694Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-26T04:53:26.695Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/916154302194/clients/_:getWebAppConfig  
+ Sat Nov 25 2017 20:53:26 GMT-0800 (PST)
+[debug] [2017-11-26T04:53:27.199Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-26T04:53:27.221Z] TypeError: Cannot read property 'public' of undefined
+    at Server.<anonymous> (/usr/local/lib/node_modules/firebase-tools/lib/serve/hosting.js:34:18)
+    at Object.onceWrapper (events.js:313:30)
+    at emitNone (events.js:106:13)
+    at Server.emit (events.js:208:7)
+    at emitListeningNT (net.js:1378:10)
+    at _combinedTickCallback (internal/process/next_tick.js:135:11)
+    at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[error] 
+[error] Error: An unexpected error has occurred.

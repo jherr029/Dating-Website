@@ -19,7 +19,6 @@
   "dependencies": {
     "bulma": "^0.6.1",
     "bulma-extensions": "^0.3.1",
-    "express": "^4.16.2",
-    "paginationjs": "^2.1.0"
+    "express": "^4.16.2"
   }
 }
