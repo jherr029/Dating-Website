@@ -62,12 +62,28 @@
                     console.log('Photo' + user.photoURL)
                     console.log('Email verified variable: ' + user.emailVerified)
  
-                    user.sendEmailVerification().then(function() {
+                    user.updateProfile( {
+                        //emailVerified: false,
+
+                    }).then(function(){
+                        console.log(user.displayName)
+                        console.log(user.emailVerified)
+                    });
+
+                    console.log('Email verified variable ' + user.emailVerified)
+
+                    if ( user.emailVerified === false ) {
+                        user.sendEmailVerification().then(function() {
                         console.log('Email has been sent')
+                        window.location.href = "verifyEmail.html"
                     }).catch(function(error){
                         console.log('Errror sending verification email')
                     })
 
+                    } else {
+                        window.location.href = "profile.html"
+                    }
+                    
 
                 } else {
                     console.log('User is not logged in')
