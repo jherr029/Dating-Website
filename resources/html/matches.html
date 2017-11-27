@@ -103,19 +103,19 @@
   <section class="grayBg">
       <br>
       <div class="container">
-          <div class="box">
+          <div class="box grayBg">
               <div class="card">
                   <div class="card-image">
                     <figure class="image is-3by2">
                       <img src="https://raw.githubusercontent.com/jherr029/Dating-Website/master/resources/images/cat.png" alt="Placeholder image">
                     </figure>
                   </div>
-                  <div class="card-content">
+                  
+
+                  <div class="card-content cardTopBorder">
                     <div class="media">
                       <div class="media-left">
-                        
                         <h1 id="percent" class="pinkText is-size-1"></h1>
-
                       </div>
                       <div class="media-content">
                         <p id="nameHolder" class="title is-4"></p>
@@ -123,7 +123,11 @@
                       </div>
                     </div>
                 
+                    <progress class="progress is-danger" value="50" max="100"> </progress>
+                    <hr>
+
                     <div class="content">
+                      
                       Profile info. <a>@bulmaio</a>.
                       <a href="#">#css</a> <a href="#">#responsive</a>
                       <br>
@@ -134,10 +138,24 @@
           </div>
       </div>
 
-      <div class="container">
-          <a onclick="prevpage()" class="button">Previous</a>
-          <a onclick="nextpage()"class="button">Next</a>
+      <div class="hero-body fixed">
+          <div class="container has-text-centered">
+              <div class="columns is-vcentered">
+                <div class="column">
+                  <a onclick="prevpage()">
+                          <img src="//iconsflow.com/embed/yQBg4mbxEj5pNDrPxgyMAo7RGkarZ6Lz/icon3.svg" width="48" height="48" alt="">
+                  </a>
+                  <a onclick="changeme()">
+                          <img src="//iconsflow.com/embed/yQBg4mbxEj5pNDrPxgyMAo7RGkarZ6Lz/icon1.svg" width="48" height="48" alt=""> 
+                  </a>
+                  <a onclick="nextpage()">
+                          <img src="//iconsflow.com/embed/yQBg4mbxEj5pNDrPxgyMAo7RGkarZ6Lz/icon4.svg" width="48" height="48" alt="">
+                  </a>
+                </div>
+              </div>
+            </div>  
         </div>
+
 
   </section>
 
