@@ -8,6 +8,63 @@
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
         
             <link rel="stylesheet" href="../css/style.css">
+
+            <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+            <script>
+              // Initialize Firebase
+              var config = {
+                apiKey: "AIzaSyBzP583ZXMjs_BKk1Kxnw9qHrtaZ7jq8Jg",
+                authDomain: "test-project-7b02a.firebaseapp.com",
+                databaseURL: "https://test-project-7b02a.firebaseio.com",
+                projectId: "test-project-7b02a",
+                storageBucket: "test-project-7b02a.appspot.com",
+                messagingSenderId: "916154302194"
+              };
+              firebase.initializeApp(config);
+            </script>
+            
+        
+            <script type="text/javascript">
+                function sendEmail( ) {
+                    firebase.auth().onAuthStateChanged(function(user) {
+                    if (user) {
+                        console.log('Name:' + user.displayName)
+                        console.log('user signed in')
+                        console.log('Email: ' + user.email)
+
+                        user.sendEmailVerification().then(function() {
+                            console.log("Email has been sent")
+
+                            temp = document.getElementById('emailSentDiv');
+                            temp.style.display = "block";
+
+
+                        }).catch(function(error) {
+                            console.log('error sending verification email')
+                        })
+                    // User is signed in.
+                    } else {
+                        console.log('user not signed in')
+                    // No user is signed in.
+                    }
+                });
+
+                }
+
+
+                function signOut() {
+                    firebase.auth().signOut().then(function() {
+                        console.log('Signed Out');
+                        }, function(error) {
+                        console.error('Sign Out Error', error);
+                        });
+                }
+
+                // window.location.href = "verifyEmail.html";
+            </script>
+                  
+        
+
     </head>
 
     <body class="grayBg">
@@ -27,11 +84,11 @@
                 
                 <div id="navbarMenuHeroC" class="navbar-menu">
                     <div class="navbar-end">
-                        <a href="index.html" class="navbar-item pinkText"></a>
+                        <a onclick="signOut()" href="index.html" class="navbar-item pinkText">Home</a>
                     </div>
 
                     <div class="navbar-end">
-                        <a href="login.html" class="navbar-item pinkText"></a>
+                        <a href="login.html" class="navbar-item pinkText">Login</a>
                     </div> 
                 </div>
             </div>
@@ -60,6 +117,39 @@
                         </h1>
                 </div>
             </div>
+        </section>
+
+        <br>
+
+        <section>
+            <div class="container">
+
+                <div class="box">
+                    <article class="message is-danger">
+                        <div class="message-header">
+                            <p><strong>Already verified your email?</strong></p>
+                        </div>
+                        <div class="message-body">
+                            <div class="container">
+                                    If you have already verified your email please <a href="login.html"><strong>Login</strong></a> <br>
+                                    If you didnt recieve a verification email click <a onclick="sendEmail()"><strong>here</strong></a> to be sent a new one
+                                    
+                            </div>
+                            
+                        </div>
+                    </article>
+                </div>
+
+                <br><br>
+
+                <div class="container">
+                    <div  id="emailSentDiv" class="notification is-danger" style="display: none">
+                        New verification email will arrive shortly to your email
+                    </div>
+                </div>
+
+            </div>
+
         </section>
     </body>
 </html>
