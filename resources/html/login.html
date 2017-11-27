@@ -48,7 +48,35 @@
             firebase.auth.EmailAuthProvider.PROVIDER_ID,
           ],
           // Terms of service url.
-          tosUrl: '<your-tos-url>'
+          tosUrl: '<your-tos-url>',
+          callbacks: {
+            signInSuccess: function( currentUser ) {
+
+                var user = firebase.auth().currentUser
+                if (user) {
+                    console.log('User is logged in')
+
+                    console.log('Display name: ' + user.displayName)
+                    console.log('Email: ' + user.email)
+                    console.log('Email verified variable: ' + user.emailVerified)
+ 
+
+                    if ( user.emailVerified === false ) {
+                        console.log('Email still not verified')
+                        window.location.href = "verifyEmail.html"
+                    } else {
+                        window.location.href = "matches.html"
+                    }
+                    
+
+                } else {
+                    console.log('User is not logged in')
+                }
+
+                console.log('This is working')
+                // window.location.href = "verifyEmail.html";
+            }
+          }
         };
   
         // Initialize the FirebaseUI Widget using Firebase.
