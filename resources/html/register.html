@@ -49,7 +49,34 @@
             firebase.auth.EmailAuthProvider.PROVIDER_ID,
           ],
           // Terms of service url.
-          tosUrl: '<your-tos-url>'
+          tosUrl: '<your-tos-url>',
+          callbacks: {
+            signInSuccess: function( currentUser ) {
+
+                var user = firebase.auth().currentUser
+                if (user) {
+                    console.log('User is logged in')
+
+                    console.log('Display name: ' + user.displayName)
+                    console.log('Email: ' + user.email)
+                    console.log('Photo' + user.photoURL)
+                    console.log('Email verified variable: ' + user.emailVerified)
+ 
+                    user.sendEmailVerification().then(function() {
+                        console.log('Email has been sent')
+                    }).catch(function(error){
+                        console.log('Errror sending verification email')
+                    })
+
+
+                } else {
+                    console.log('User is not logged in')
+                }
+
+                console.log('This is working')
+                signInSuccessUrl: 'profile.html'
+            }
+          }
         };
   
         // Initialize the FirebaseUI Widget using Firebase.
@@ -97,25 +124,24 @@
                      <a class="navbar-item">
                          <img src="../images/cat.png" alt="logo">
                      </a>
-                     <button class="button navbar-burger" data-target="navbarMenuHeroC">
+                     <span class="navbar-burger burger" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');" data-target="navbarMenuHeroC">
                          <span></span>
                          <span></span>
                          <span></span>
-                     </button>
+                     </span>
                  </div>
-                 <span class="navbar-burger burger" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');" data-target="navbarMenuHeroC">
+                 <div id="navbarMenuHeroC" class="navbar-menu">
                      <div class="navbar-end">
                          <a class="navbar-item is-active" href="index.html">
                              Home
                          </a>
-                         <a class="navbar-item is-active" href="index.html">
+                         <a class="navbar-item" href="index.html">
                             Exit
                         </a>
                      </div>
                  </div>
              </div>
             </header>
-
       </div>
     </div>
 
@@ -136,34 +162,16 @@
 
                     <h1 class="title pinkText is-size-2">Register</h1>
                     <hr>
+                    <div class="container">
+                            <div class="g-recaptcha" data-sitekey="6LcCCzoUAAAAAEB-CskxIIdF4tbUjEzWIfBE0mRK"></div>
 
-                    <div class="control">
-                        <input id="txtPassword" class="input is-danger" type="email" placeholder="Email" style="width: 400px">
                     </div>
-                </div>
+                    <br>
 
-                <div class="field">
-                    <div class="control">
-                        <input id="txtPassword" class="input is-danger" type="password" placeholder="Password" style="width: 400px">
-                    </div>
-                </div>
-
-                 <div class="field">
-                    <div class="control">
-                        <input id="txtPassword2" class="input is-danger" type="password" placeholder="Retype Password" style="width: 400px">
-                    </div>
-                </div>
-                
-                <div id="firebaseui-auth-container"></div>
-                
-        
-                <!--<input onclick="saveFirebase()" class="button is-danger" type="submit" value="Submit">-->
-                 <input onclick="send" class="button is-danger" type="submit" value="Submit">    
-
-                <div class="g-recaptcha" data-sitekey="6LcCCzoUAAAAAEB-CskxIIdF4tbUjEzWIfBE0mRK"></div>
-
+                    <div id="firebaseui-auth-container"></div>
+            
+                <!--<input onclick="saveFirebase()" class="button is-danger" type="submit" value="Submit">-->               
             </div>
-                <div id="profile"></div>
            </div>
 
            
