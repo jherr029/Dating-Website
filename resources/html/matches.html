@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,6 +33,7 @@
 <body>
 
   <section>
+
     <script>MatchMaking()</script>
 
     <div class="hero">
@@ -100,6 +101,8 @@
     };
   </script>
 
+
+
   <section class="grayBg">
       <br>
       <div class="container">
@@ -125,14 +128,65 @@
                 
                     <progress class="progress is-danger" value="50" max="100"> </progress>
                     <hr>
+                
+                        <article class="message is-danger">
+                            <div class="message-header">
+                              <p>Traits</p>
+                              <button class="delete" aria-label="delete" onclick="hideElement('traitID')"></button>
+                            </div>
+                            <div id="traitID" class="message-body">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+                            </div>
+                          </article>
+                  
+                          
+                        <article class="message is-danger">
+                            <div class="message-header">
+                              <p>Likes</p>
+                              <button class="delete" aria-label="delete" onclick="hideElement('likesID')"></button>
+                            </div>
+                            <div id="likesID" class="message-body">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+                            </div>
+                          </article>
+                                          
 
-                    <div class="content">
-                      
-                      Profile info. <a>@bulmaio</a>.
-                      <a href="#">#css</a> <a href="#">#responsive</a>
-                      <br>
-                      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                    </div>
+                          <article class="message is-danger">
+                              <div class="message-header">
+                                <p>Dislikes</p>
+                                <button class="delete" aria-label="delete" onclick="hideElement('dislikesID')"></button>
+                              </div>
+                              <div id="dislikesID" class="message-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+                              </div>
+                          </article>
+                    
+                          <article class="message is-danger">
+                              <div class="message-header">
+                                <p>About Me</p>
+                                <button class="delete" aria-label="delete" onclick="hideElement('aboutMeID')"></button>
+                              </div>
+                              <div id="aboutMeID" class="message-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+                              </div>
+                          </article>
+
+
+                          <!-- HIDE ELEMENTS -->
+                          <script>
+                          function hideElement(ele) {
+                                var element = document.getElementById(ele)
+                          
+                                console.log('test' + element)
+                          
+                                if ( element.style.display === "none") {
+                                  element.style.display = "block"
+                                } else {
+                                  element.style.display = "none"
+                                }
+                              };
+                            </script>
+              
                   </div>
                 </div>
           </div>
@@ -157,9 +211,8 @@
         </div>
 
 
+        <br>
   </section>
-
-
 
 </body>
 </html>
