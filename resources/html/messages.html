@@ -17,10 +17,10 @@
 
 </head>
 
-<body>
+<body class="grayBg">
 
   <section>
-    <div class="hero">
+    <div class="hero topNav">
         <nav class="navbar">
           <div class="container">
           <div class="navbar-brand">
@@ -76,12 +76,45 @@
   </section>
 
   <section class="grayBg">
-      <br>
-      
+
+  <br><br>
+
+  <div class="container">
+    <div id="ok"></div>
+  </div>
+
 
   </section>
+      
+  <script>    
+    
+    // change for loop values or change to whatever you have
+    for ( i=0; i < 5; i++)
+    {
+        
+        var articleMessage = document.createElement('article')
+        var headerP = document.createElement('p')
+        var divHeader = document.createElement('div')
+        var divBody = document.createElement('div')
 
 
+        headerP.innerText = ""  // header title
+        divBody.innerText = ""  // body
+
+        articleMessage.className = "message is-danger"
+        divHeader.className = "message-header"
+        divBody.className = "message-body"
+
+        
+        divHeader.insertAdjacentElement('afterbegin', headerP )
+        articleMessage.insertAdjacentElement('afterbegin', divHeader )
+        articleMessage.insertAdjacentElement('beforeend', divBody )
+        
+        ok.appendChild(articleMessage)
+
+    }
+      
+   </script>
 
 </body>
 </html>
