@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html ng-app>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Please Date Me</title>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.4/angular.min.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,86 +23,87 @@
     <script src='https://www.google.com/recaptcha/api.js'></script>
 
     <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
-	<script>
-	  // Initialize Firebase
-	  var config = {
-		apiKey: "AIzaSyBzP583ZXMjs_BKk1Kxnw9qHrtaZ7jq8Jg",
-		authDomain: "test-project-7b02a.firebaseapp.com",
-		databaseURL: "https://test-project-7b02a.firebaseio.com",
-		projectId: "test-project-7b02a",
-		storageBucket: "test-project-7b02a.appspot.com",
-		messagingSenderId: "916154302194"
-	  };
-	  firebase.initializeApp(config);
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBzP583ZXMjs_BKk1Kxnw9qHrtaZ7jq8Jg",
+            authDomain: "test-project-7b02a.firebaseapp.com",
+            databaseURL: "https://test-project-7b02a.firebaseio.com",
+            projectId: "test-project-7b02a",
+            storageBucket: "test-project-7b02a.appspot.com",
+            messagingSenderId: "916154302194"
+        };
+        firebase.initializeApp(config);
+
     </script>
-    
+
 
 
     <script type="text/javascript">
         // FirebaseUI config.
         var uiConfig = {
-          signInSuccessUrl: 'profile.html',
-          signInOptions: [
-            // Leave the lines as is for the providers you want to offer your users.
-            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-            firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-            firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-            firebase.auth.EmailAuthProvider.PROVIDER_ID,
-          ],
-          // Terms of service url.
-          tosUrl: '<your-tos-url>',
-          callbacks: {
-            signInSuccess: function( currentUser ) {
+            signInSuccessUrl: 'profile.html',
+            signInOptions: [
+                // Leave the lines as is for the providers you want to offer your users.
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+                firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+                firebase.auth.EmailAuthProvider.PROVIDER_ID,
+            ],
+            // Terms of service url.
+            tosUrl: '<your-tos-url>',
+            callbacks: {
+                signInSuccess: function(currentUser) {
 
-                var user = firebase.auth().currentUser
-                if (user) {
-                    console.log('User is logged in')
+                    var user = firebase.auth().currentUser
+                    if (user) {
+                        console.log('User is logged in')
 
-                    console.log('Display name: ' + user.displayName)
-                    console.log('Email: ' + user.email)
-                    console.log('Photo' + user.photoURL)
-                    console.log('Email verified variable: ' + user.emailVerified)
- 
-                    user.updateProfile( {
-                        //emailVerified: false,
+                        console.log('Display name: ' + user.displayName)
+                        console.log('Email: ' + user.email)
+                        console.log('Photo' + user.photoURL)
+                        console.log('Email verified variable: ' + user.emailVerified)
 
-                    }).then(function(){
-                        console.log(user.displayName)
-                        console.log(user.emailVerified)
-                    });
+                        user.updateProfile({
+                            //emailVerified: false,
 
-                    console.log('Email verified variable ' + user.emailVerified)
+                        }).then(function() {
+                            console.log(user.displayName)
+                            console.log(user.emailVerified)
+                        });
 
-                    if ( user.emailVerified === false ) {
-                        user.sendEmailVerification().then(function() {
-                        console.log('Email has been sent')
-                        window.location.href = "verifyEmail.html"
-                    }).catch(function(error){
-                        console.log('Errror sending verification email')
-                    })
+                        console.log('Email verified variable ' + user.emailVerified)
+
+                        if (user.emailVerified === false) {
+                            user.sendEmailVerification().then(function() {
+                                console.log('Email has been sent')
+                                window.location.href = "verifyEmail.html"
+                            }).catch(function(error) {
+                                console.log('Errror sending verification email')
+                            })
+
+                        } else {
+                            window.location.href = "profile.html"
+                        }
+
 
                     } else {
-                        window.location.href = "profile.html"
+                        console.log('User is not logged in')
                     }
-                    
 
-                } else {
-                    console.log('User is not logged in')
+                    console.log('This is working')
+                    // window.location.href = "verifyEmail.html";
                 }
-
-                console.log('This is working')
-                // window.location.href = "verifyEmail.html";
             }
-          }
         };
-  
+
         // Initialize the FirebaseUI Widget using Firebase.
         var ui = new firebaseui.auth.AuthUI(firebase.auth());
         // The start method will wait until the DOM is loaded.
         ui.start('#firebaseui-auth-container', uiConfig);
 
     </script>
-    
+
     <script src="app.js"></script>
 
 
@@ -111,91 +113,88 @@
 <body class="grayBg">
 
 
-   
+
     <script>
         var user = firebase.auth().currentUser;
-        
-        if (user)
-        {
-            user.sendEmailVerification().then(function()
-            {
 
-            }).catch(function(error){
+        if (user) {
+            user.sendEmailVerification().then(function() {
+
+            }).catch(function(error) {
 
             });
-            
-        }
-        else
-        {
+
+        } else {
 
         }
+
     </script>
 
-   <!-- maybe add section here -->
+    <!-- maybe add section here -->
     <div class="hero is-danger is-medium is-bold">
-      <div class="hero-head borderBottom">
-         <header class="navbar">
-             <div class="container">
-                 <div class="navbar-brand">
-                     <a class="navbar-item">
+        <div class="hero-head borderBottom">
+            <header class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item">
                          <img src="../images/cat.png" alt="logo">
                      </a>
-                     <span class="navbar-burger burger" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');" data-target="navbarMenuHeroC">
+                        <span class="navbar-burger burger" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');" data-target="navbarMenuHeroC">
                          <span></span>
-                         <span></span>
-                         <span></span>
-                     </span>
-                 </div>
-                 <div id="navbarMenuHeroC" class="navbar-menu">
-                     <div class="navbar-end">
-                         <a class="navbar-item is-active" href="index.html">
+                        <span></span>
+                        <span></span>
+                        </span>
+                    </div>
+                    <div id="navbarMenuHeroC" class="navbar-menu">
+                        <div class="navbar-end">
+                            <a class="navbar-item is-active" href="index.html">
                              Home
                          </a>
-                         <a class="navbar-item" href="index.html">
+                            <a class="navbar-item" href="index.html">
                             Exit
                         </a>
-                     </div>
-                 </div>
-             </div>
+                        </div>
+                    </div>
+                </div>
             </header>
-      </div>
+        </div>
     </div>
 
     <section>
-      <div class="hero">
-        <div class="hero-head">
-            <br><br><br><br>
-        </div>
-       <div class="hero-body">
-
-           <div class="container">
-
-            <br><br>
-
-            <div class="box">
-
-                <div class="field">
-
-                    <h1 class="title pinkText is-size-2">Register</h1>
-                    <hr>
-                    <div class="container">
-                            <div class="g-recaptcha" data-sitekey="6LcCCzoUAAAAAEB-CskxIIdF4tbUjEzWIfBE0mRK"></div>
-
-                    </div>
-                    <br>
-
-                    <div id="firebaseui-auth-container"></div>
-            
-                <!--<input onclick="saveFirebase()" class="button is-danger" type="submit" value="Submit">-->               
+        <div class="hero">
+            <div class="hero-head">
+                <br><br><br><br>
             </div>
-           </div>
+            <div class="hero-body">
 
-           
+                <div class="container">
+
+                    <br><br>
+
+                    <div class="box">
+
+                        <div class="field">
+
+                            <h1 class="title pinkText is-size-2">Register</h1>
+                            <hr>
+                            <div class="container">
+                                <div class="g-recaptcha" data-sitekey="6LcCCzoUAAAAAEB-CskxIIdF4tbUjEzWIfBE0mRK"></div>
+
+                            </div>
+                            <br>
+
+                            <div id="firebaseui-auth-container"></div>
+
+                            <!--<input onclick="saveFirebase()" class="button is-danger" type="submit" value="Submit">-->
+                        </div>
+                    </div>
 
 
-       </div>
-    </div>
-</section>
+
+
+                </div>
+            </div>
+    </section>
 
 
 </body>
