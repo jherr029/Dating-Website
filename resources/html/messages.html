@@ -82,7 +82,7 @@
   <div class="container">
     <div id="ok"></div>
   </div>
-
+  <br><br>
 
   </section>
       
@@ -92,23 +92,27 @@
     for ( i=0; i < 5; i++)
     {
         
-        var articleMessage = document.createElement('article')
-        var headerP = document.createElement('p')
-        var divHeader = document.createElement('div')
-        var divBody = document.createElement('div')
+        var articleMessage  = document.createElement('article')   // article 
+        var headerP         = document.createElement('p')         // p element
+        var strongName      = document.createElement('strong')    // bold the name
+        var buttonSec       = document.createElement('a')         // button element
+        var divHeader       = document.createElement('div')       // message header
+        var divBody         = document.createElement('div')       // message body
 
 
-        headerP.innerText = ""  // header title
-        divBody.innerText = ""  // body
+        strongName.innerText  = ""  // header title
+        divBody.innerText     = ""  // body
 
-        articleMessage.className = "message is-danger"
-        divHeader.className = "message-header"
-        divBody.className = "message-body"
+        buttonSec.href            = ""      // the location change    
+        articleMessage.className  = "message is-danger"
+        divHeader.className       = "message-header"
+        divBody.className         = "message-body"
 
-        
-        divHeader.insertAdjacentElement('afterbegin', headerP )
-        articleMessage.insertAdjacentElement('afterbegin', divHeader )
-        articleMessage.insertAdjacentElement('beforeend', divBody )
+        headerP.insertAdjacentElement('afterbegin', strongName)         // Places strongName in headerP
+        buttonSec.insertAdjacentElement('afterbegin', divBody)          // Places divBody in buttonSec
+        divHeader.insertAdjacentElement('afterbegin', headerP )         // Places headerP in divHeader
+        articleMessage.insertAdjacentElement('afterbegin', divHeader )  // Places divHeader in articleMessage
+        articleMessage.insertAdjacentElement('beforeend', buttonSec )   // Places buttonSec before the end of articleMessage
         
         ok.appendChild(articleMessage)
 
