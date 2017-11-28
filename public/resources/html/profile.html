@@ -27,62 +27,56 @@
             storageBucket: "test-project-7b02a.appspot.com",
             messagingSenderId: "916154302194"
         };
-        firebase.initializeApp(config);
-
-        window.onload = function() {
+        window.onload=function(){
             var fileButton = document.getElementById("fileButton");
-            //listen for file selection
-
-            if (fileButton) {
-                fileButton.addEventListener('change', function(e) {
+              //listen for file selection
+              
+              if(fileButton){
+                fileButton.addEventListener('change', function(e){
                     //get file
                     var file = e.target.files[0];
                     //create storage ref
                     //upload file
-                    var task = firebase.storage().ref('profile_pic/' + file.name).put(file);
-
-
-
-                    //getting pic from 
-                    /*var storage = firebase.storage();
-                var storageRef = storage.ref();
-                var imageRef = storageRef.child('profile_pic');
-                var spaceRef= storageRef.child('profile_pic/' + file.name);
-                //returns filepath:
-                var filepath = spaceRef.fullPath;
-    
-              storageRef.child('profile_pic/' + file.name).getDownloadURL().then(function(url) {
-              var img = document.getElementById('myimg');
-              img.src = url;
-              }).catch(function(error) {
-                  // Handle any errors
-              });*/
-                });
-            }
+                    var task = firebase.storage().ref('profile_pic/'+ file.name).put(file);
+                    
+                    task.then(function(value){
+                        var storage = firebase.storage();
+                        var storageRef = storage.ref();
+                        var imageRef = storageRef.child('profile_pic');
+                        var spaceRef= storageRef.child('profile_pic/' + file.name);
+                        //returns filepath:
+                        var filepath = spaceRef.fullPath;
+                    
+                        storageRef.child('profile_pic/' + file.name).getDownloadURL().then(function(url) {
+                        var img = document.getElementById('myimg');
+                            img.src = url;
+                        console.log(img.src);
+                        });
+                    });           
+               });
+             }
         }
-
     </script>
-
-
 
     <script src="app.js"></script>
 
 
 </head>
 
-<body>
-
+<body onload="loadAds();">
     <div class="hero">
+
+        <script>loadDetails()</script>
 
         <nav class="navbar topNav">
             <div class="container">
                 <div class="navbar-brand">
                     <a class="navbar-item pinkText">
                     PlsDate
-                </a>
+                    </a>
 
                     <span class="navbar-burger burger" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');" data-target="navbarMenuHeroC">
-                <span></span>
+                    <span></span>
                     <span></span>
                     <span></span>
                     </span>
@@ -90,13 +84,13 @@
 
                 <div id="navbarMenuHeroC" class="navbar-menu">
                     <div class="navbar-end">
-                        <a href="matches.html" class="navbar-item pinkText is-">
+                        <a href="matches.html" class="navbar-item pinkText">
                         Matches
-                    </a>
+                         </a>
 
                         <a href="index.html" class="navbar-item pinkText">
                         Logout
-                    </a>
+                        </a>
 
                     </div>
                 </div>
@@ -137,7 +131,6 @@
             </nav>
         </div>
     </div>
-
 
     <section class="grayBg">
 
@@ -196,110 +189,95 @@
                         Attributes
                     </h1>
 
-                    <hr>
+                <hr>
 
-                    <div class="field">
+                <div class="field">
 
-                        <div class="columns">
-                            <div class="column">
-                                <p class="control">
-                                    <div class="b-checkbox is-danger is-circular">
-                                        <input id="checkbox" class="styled" type="checkbox">
-                                        <label for="checkbox">
-                                                Artsy
-                                            </label>
-                                    </div>
-                                </p>
+                    <div class="columns">
+                        <div class="column">
+                            <p class="control">
+                                <div class="b-checkbox is-danger is-circular">
+                                    <input id="checkbox" class="styled" type="checkbox">
+                                    <label for="checkbox">
+                                            Artsy
+                                        </label>
+                                </div>
+                            </p>
 
-                                <p class="control">
-                                    <div class="b-checkbox is-danger is-circular">
-                                        <input id="checkbox2" class="styled" type="checkbox">
-                                        <label for="checkbox2">
-                                                Nerdy
-                                            </label>
-                                    </div>
-                                </p>
+                            <p class="control">
+                                <div class="b-checkbox is-danger is-circular">
+                                    <input id="checkbox2" class="styled" type="checkbox">
+                                    <label for="checkbox2">
+                                            Nerdy
+                                        </label>
+                                </div>
+                            </p>
 
-                                <p class="control">
-                                    <div class="b-checkbox is-danger is-circular">
-                                        <input id="checkbox3" class="styled" type="checkbox">
-                                        <label for="checkbox3">
-                                                Sporty
-                                            </label>
-                                    </div>
-                                </p>
-                            </div>
+                            <p class="control">
+                                <div class="b-checkbox is-danger is-circular">
+                                    <input id="checkbox3" class="styled" type="checkbox">
+                                    <label for="checkbox3">
+                                            Sporty
+                                        </label>
+                                </div>
+                            </p>
+                    
 
-                            <div class="column">
-                                <p class="control">
-                                    <div class="b-checkbox is-danger is-circular">
-                                        <input id="checkbox4" class="styled" type="checkbox">
-                                        <label for="checkbox4">
-                                                Funny
-                                            </label>
-                                    </div>
-                                </p>
-
-
-                                <p class="control">
-                                    <div class="b-checkbox is-danger is-circular">
-                                        <input id="checkbox5" class="styled" type="checkbox">
-                                        <label for="checkbox5">
-                                                Foody
-                                            </label>
-                                    </div>
-                                </p>
-
-
-                                <p class="control">
-                                    <div class="b-checkbox is-danger is-circular">
-                                        <input id="checkbox6" class="styled" type="checkbox">
-                                        <label for="checkbox6">
-                                                Kinky
-                                            </label>
-                                    </div>
-                                </p>
-                            </div>
-
-                            <div class="column">
-                                <p class="control">
-                                    <div class="b-checkbox is-danger is-circular">
-                                        <input id="checkbox7" class="styled" type="checkbox">
-                                        <label for="checkbox7">
-                                                Quirky
-                                            </label>
-                                    </div>
-                                </p>
-
-                                <p class="control">
-                                    <div class="b-checkbox is-danger is-circular">
-                                        <input id="checkbox8" class="styled" type="checkbox">
-                                        <label for="checkbox8">
-                                                Messy
-                                            </label>
-                                    </div>
-                                </p>
-
-
-                                <p class="control">
-                                    <div class="b-checkbox is-danger is-circular">
-                                        <input id="checkbox9" class="styled" type="checkbox">
-                                        <label for="checkbox9">
-                                                Clumsy
-                                            </label>
-                                    </div>
-                                </p>
-                            </div>
+                            <p class="control">
+                                <div class="b-checkbox is-danger is-circular">
+                                    <input id="checkbox4" class="styled" type="checkbox">
+                                    <label for="checkbox4">
+                                            Funny
+                                        </label>
+                                </div>
+                            </p>
                         </div>
 
+                        <div class="column">
+
+                            <p class="control">
+                                <div class="b-checkbox is-danger is-circular">
+                                    <input id="checkbox5" class="styled" type="checkbox">
+                                    <label for="checkbox5">
+                                            Foody
+                                        </label>
+                                </div>
+                            </p>
 
 
+                            <p class="control">
+                                <div class="b-checkbox is-danger is-circular">
+                                    <input id="checkbox6" class="styled" type="checkbox">
+                                    <label for="checkbox6">
+                                            Kinky
+                                        </label>
+                                </div>
+                            </p>
+            
 
+                            <p class="control">
+                                <div class="b-checkbox is-danger is-circular">
+                                    <input id="checkbox7" class="styled" type="checkbox">
+                                    <label for="checkbox7">
+                                            Quirky
+                                        </label>
+                                </div>
+                            </p>
 
+                            <p class="control">
+                                <div class="b-checkbox is-danger is-circular">
+                                    <input id="checkbox8" class="styled" type="checkbox">
+                                    <label for="checkbox8">
+                                            Messy
+                                        </label>
+                                </div>
+                            </p>
+                        </div>  
                     </div>
                 </div>
             </div>
-
+        </div>
+    
             <br><br>
 
             <div class="container">
@@ -366,6 +344,9 @@
 
         </div>
     </section>
+    <div>
+            <img onclick = "window.open('http://palms-zanzibar.com/press/win-zanzibar-beach-holiday-western-morning-news/')"  class = "advertisement" id = 'ad' style = "cursor: pointer; position: relative; bottom: 0px; height: 100px; width: 1800px; " src = "">
+    </div>  
 
 </body>
 

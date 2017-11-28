@@ -80,7 +80,11 @@ FriendlyChat.prototype.loadMessages = function() {
     id1 = cid;
     id2 = uid;
   }
-  this.messagesRef = this.database.ref('messages/' + id1  + "&" + id2);
+  var pathid = id1+ '&' + id2;
+  const pid = {pathid};
+  this.messagesRef = this.database.ref('messages/' + pathid);
+  firebase.database().ref('messages/' + pathid).update(pid);
+  
   // Make sure we remove all previous listeners.
   this.messagesRef.off();
 
@@ -100,9 +104,15 @@ FriendlyChat.prototype.saveMessage = function(e) {
   if (this.messageInput.value && this.checkSignedInWithMessage()) {
     var currentUser = this.auth.currentUser;
     console.log(currentUser.uid);
+    
+    var theyname = new Object();
+    var currentname = firebase.database().ref().child("Users/" + currentUser.uid + "/name");
+    currentname.on('value', function(datasnapshot){
+		theyname = datasnapshot.val();
+	});
     // Add a new message entry to the Firebase Database.
     this.messagesRef.push({
-      name: currentUser.displayName,
+      name: theyname,
       text: this.messageInput.value,
       photoUrl: currentUser.photoURL || '/images/profile_placeholder.png'
     }).then(function() {
@@ -113,7 +123,6 @@ FriendlyChat.prototype.saveMessage = function(e) {
       console.error('Error writing new message to Firebase Database', error);
     });
     // TODO(DEVELOPER): push new message to Firebase.
-
   }
 };
 
@@ -153,8 +162,13 @@ FriendlyChat.prototype.saveImageMessage = function(event) {
   if (this.checkSignedInWithMessage()) {
   // We add a message with a loading icon that will get updated with the shared image.
   var currentUser = this.auth.currentUser;
+  var theyname = "";
+  var currentname = firebase.database().ref().child("Users/" + currentUser.uid + "/name");
+  currentname.on('value', function(datasnapshot){
+	theyname = datasnapshot.val();
+  });
   this.messagesRef.push({
-    name: currentUser.displayName,
+    name: theyname,
     imageUrl: FriendlyChat.LOADING_IMAGE_URL,
     photoUrl: currentUser.photoURL || '/images/profile_placeholder.png'
   }).then(function(data) {
@@ -242,11 +256,31 @@ FriendlyChat.prototype.checkSignedInWithMessage = function() {
 // Saves the messaging device token to the datastore.
 FriendlyChat.prototype.saveMessagingDeviceToken = function() {
   // TODO(DEVELOPER): Save the device token in the realtime datastore
+  firebase.messaging().getToken().then(function(currentToken) {
+    if (currentToken) {
+      console.log('Got FCM device token:', currentToken);
+      // Saving the Device Token to the datastore.
+      firebase.database().ref('/fcmTokens').child(currentToken)
+          .set(firebase.auth().currentUser.uid);
+    } else {
+      // Need to request permissions to show notifications.
+      this.requestNotificationsPermissions();
+    }
+  }.bind(this)).catch(function(error){
+    console.error('Unable to get messaging token.', error);
+  });
 };
 
 // Requests permissions to show notifications.
 FriendlyChat.prototype.requestNotificationsPermissions = function() {
   // TODO(DEVELOPER): Request permissions to send notifications.
+  console.log('Requesting notifications permission...');
+  firebase.messaging().requestPermission().then(function() {
+    // Notification permission granted.
+    this.saveMessagingDeviceToken();
+  }.bind(this)).catch(function(error) {
+    console.error('Unable to get permission to notify.', error);
+  });
 };
 
 // Resets the given MaterialTextField.

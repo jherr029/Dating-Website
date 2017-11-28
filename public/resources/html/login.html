@@ -67,7 +67,7 @@
                             console.log('Email still not verified')
                             window.location.href = "verifyEmail.html"
                         } else {
-                            window.location.href = "matches.html"
+                            window.location.href = "matches.html?arrnum=0"
                         }
 
 
@@ -85,6 +85,10 @@
         var ui = new firebaseui.auth.AuthUI(firebase.auth());
         // The start method will wait until the DOM is loaded.
         ui.start('#firebaseui-auth-container', uiConfig);
+
+        function recaptchaCallback(){
+			document.getElementById("firebaseui-auth-container").style.display = "block";
+		}
 
     </script>
 
@@ -140,11 +144,13 @@
                     <hr>
 
                     <div class="container">
-                        <div class="g-recaptcha" data-sitekey="6LcCCzoUAAAAAEB-CskxIIdF4tbUjEzWIfBE0mRK"></div>
+                        <div data-callback="recaptchaCallback" class="g-recaptcha" data-sitekey="6LcCCzoUAAAAAEB-CskxIIdF4tbUjEzWIfBE0mRK"></div>
                     </div>
                     <br>
 
                     <div id="firebaseui-auth-container"></div>
+
+                    <script> document.getElementById("firebaseui-auth-container").style.display = "none"; </script>
 
                 </div>
 

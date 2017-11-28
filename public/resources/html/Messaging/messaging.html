@@ -67,6 +67,7 @@
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
+<body onload = "LoadAds();">
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
   <!-- Header section containing logo -->
@@ -121,8 +122,18 @@
       </div>
 
     </div>
+    
+    <div>
+				<img onclick = "window.open('http://palms-zanzibar.com/press/win-zanzibar-beach-holiday-western-morning-news/')"  class = "advertisement" id = 'ad' style = "cursor: pointer; position: relative; bottom: 0px; height: 100px; width: 1800px; " src = "">
+			</div>
   </main>
 </div>
+
+<script>
+document.getElementById("user-pic").style.display = "none";
+document.getElementById("user-name").style.display = "none";
+document.getElementById("sign-out").style.display = "none";
+</script>
 
 <!-- Import and configure the Firebase SDK -->
 <!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->

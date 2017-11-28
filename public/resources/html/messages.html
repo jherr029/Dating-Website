@@ -18,6 +18,7 @@
 </head>
 
 <body class="grayBg">
+<body onload="loadMessages();"></body>
 
   <section>
     <div class="hero topNav">
@@ -75,7 +76,7 @@
           <nav class="tabs is-boxed">
             <div class="container">
               <ul>
-                <li><a href="matches.html">Home</a></li>
+                <li><a href="matches.html?arrnum=0">Home</a></li>
                 <li class="is-active"><a href="">Messages</a></li>
               </ul>
             </div>
@@ -92,42 +93,9 @@
     <div id="ok"></div>
   </div>
   <br><br>
-
+  
   </section>
       
-  <script>    
-    
-    // change for loop values or change to whatever you have
-    for ( i=0; i < 5; i++)
-    {
-        
-        var articleMessage  = document.createElement('article')   // article 
-        var headerP         = document.createElement('p')         // p element
-        var strongName      = document.createElement('strong')    // bold the name
-        var buttonSec       = document.createElement('a')         // button element
-        var divHeader       = document.createElement('div')       // message header
-        var divBody         = document.createElement('div')       // message body
-
-
-        strongName.innerText  = ""  // header title
-        divBody.innerText     = ""  // body
-
-        buttonSec.href            = ""      // the location change    
-        articleMessage.className  = "message is-danger"
-        divHeader.className       = "message-header"
-        divBody.className         = "message-body"
-
-        headerP.insertAdjacentElement('afterbegin', strongName)         // Places strongName in headerP
-        buttonSec.insertAdjacentElement('afterbegin', divBody)          // Places divBody in buttonSec
-        divHeader.insertAdjacentElement('afterbegin', headerP )         // Places headerP in divHeader
-        articleMessage.insertAdjacentElement('afterbegin', divHeader )  // Places divHeader in articleMessage
-        articleMessage.insertAdjacentElement('beforeend', buttonSec )   // Places buttonSec before the end of articleMessage
-        
-        ok.appendChild(articleMessage)
-
-    }
-      
-   </script>
 
 </body>
 </html>
