@@ -14,6 +14,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
 
     <link rel="stylesheet" href="../css/style.css">
+    
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+      apiKey: "AIzaSyBzP583ZXMjs_BKk1Kxnw9qHrtaZ7jq8Jg",
+      authDomain: "test-project-7b02a.firebaseapp.com",
+      databaseURL: "https://test-project-7b02a.firebaseio.com",
+      projectId: "test-project-7b02a",
+      storageBucket: "test-project-7b02a.appspot.com",
+      messagingSenderId: "916154302194"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="app.js"></script>
 
 </head>
 
@@ -43,7 +58,7 @@
                 Settings
               </a> 
               <div class="navbar-end">
-              <a href="index.html" class="navbar-item pinkText">
+              <a onclick="signOutFirebase()" class="navbar-item pinkText">
                 Logout
               </a> 
               
@@ -64,8 +79,8 @@
           <h2 class="subtitle">Messages!</h2>
         </div>
         <div class="column">
-            <a href="https://www.savetheinternet.com/net-neutrality-what-you-need-know-now">
-            <img src="../images/hankAd.png">
+            <a id='Ad1' href="htps://www.savetheinternet.com/net-neutrality-what-you-need-know-now">
+            <img src="https://raw.githubusercontent.com/jherr029/Dating-Website/master/public/resources/images/hankAd.png">
             </a>
         </div>
         </div>
@@ -78,6 +93,8 @@
               <ul>
                 <li><a href="matches.html?arrnum=0">Home</a></li>
                 <li class="is-active"><a href="">Messages</a></li>
+                <li><a href="makeEvent.html">Make an Event</a></li>
+                <li><a href = "viewEvent.html?arrnum=0">View Events</a></li>
               </ul>
             </div>
           </nav>
@@ -93,7 +110,7 @@
     <div id="ok"></div>
   </div>
   <br><br>
-  
+
   </section>
       
 

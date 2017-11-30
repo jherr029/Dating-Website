@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+		    <title>Please Date Me</title>
+		    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.4/angular.min.js"></script>
+		    <script type = "text/javascript" src = "premium.js"></script>
+		    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+			<script>
+				  // Initialize Firebase
+				  var config = {
+					apiKey: "AIzaSyBzP583ZXMjs_BKk1Kxnw9qHrtaZ7jq8Jg",
+					authDomain: "test-project-7b02a.firebaseapp.com",
+					databaseURL: "https://test-project-7b02a.firebaseio.com",
+					projectId: "test-project-7b02a",
+					storageBucket: "test-project-7b02a.appspot.com",
+					messagingSenderId: "916154302194"
+				  };
+				  firebase.initializeApp(config);
+			</script>
+		</head>
+
+		<body onload = "LoadAds();">
+
+			<div class = "box" id = "boxx" style = "background:#FF3860; height: 1100px;">
+				<center>
+					<h1 class = "message" id = "message" >Buy Premium now and match without advertisements! </h1>
+				</center>
+				<div style = "position: relative; bottom: 100px; left: 100px; ">
+					<center>
+						<div>
+							<p style = "height: 30px; width: 200px; position: relative; top:320px; right: 10px"> PROMO CODE </p>
+							<input type = "text" name = "pro" id = "pro" maxlength = "20" style = "height: 30px; width: 200px; position: relative; top: 300px;" placeholder = "promotion code">
+						</div>
+						<button onclick = "ActivatePremium()" style = "width: 200px; height: 60px;position: relative; top: 370px;" class = "PremiumButton">BUY PREMIUM NOW</button>
+						
+					<div style = "position: relative; bottom: 200px;">
+						<div>
+							<p style = "height: 30px; width: 200px;position: relative; top:220px; right: 340px"> Visa/Debit card # </p>
+							<input type = "text" name = "CCN" id = "CCN" maxlength="16" style = "height: 30px; width: 200px;position: relative; top:200px; right: 340px"
+							placeholder = " 123456789876543">
+						</div>
+						<div>
+							<p style = "height: 30px; width: 75px;position: relative; top:200px; right: 280px"> CVV(3 digits) </p>
+							<input type = "text" name = "CVV" id = "CVV" maxlength="3" style = "height: 30px; width: 75px;position: relative; top:200px; right: 280px" placeholder = "CVV">
+						</div>
+						<div>
+							<p style = "height: 30px; width: 75px;position: relative; top:200px; right: 280px"> Exp Date </p>
+							<input type = "text" name = "exp" id = "exp" maxlength="5" style = "height: 30px; width: 75px;position: relative; top:180px; right: 280px" placeholder = "01/18">
+						</div>
+						<div>
+							<p style = "height: 30px; width: 300px;position: relative; top:200px; right: 400px"> Full Name with Mid Initial </p>
+							<input type = "text" name = "FullName" id = "FullName" maxlength="25" style = "height: 30px; width: 300px;position: relative; top:180px; right: 390px" placeholder = "Full Name">
+						</div>
+					</div>
+
+
+
+						
+					</center>
+				</div>
+
+				<div class = "promo_box" id = "promo" style = " border: 1px solid white; position: relative; background: #0408C0; left: 50px; bottom:500px; height: 300px; width: 350px;">
+					<h1 style = "color: #ffffff; size: 20px;"> GET 1 MONTH PREMIUM FREE WITH PROMO CODE: </h1>
+					<br>
+					<h1 style = "color: #FF3860; font-size: 40px;"> GiveUsMaxScores</h1>
+				</div>
+
+				<div class = "box" id = "info" style = "position: relative; left: 300px; bottom: 400px; height: 100px; width: 1000px">
+					<h1> If your purchase was successful, you should receieve an email confirmation and all floofys should dissapear! </h1>
+				
+					<div class = "sub_box" id = "images" style = " border:1px solid white; position: relative; left:10px; top:-10px; width: 815px">
+						<img id = 'cat' style = "display: ; position:relative;  " src="">
+						<img id = 'cat1' style = "display: ; position:relative; " src="">
+						<img id = 'cat2' style = "display: ; position:relative; " src="">
+						<img id = 'cat3' style = "display: ; position:relative; " src="">
+					</div>
+
+					
+					
+				<div class = "box" id = "confirmation" style = " height: 100px; width: 220px; display: none; position: relative; right: -1200px; bottom: 300px;">
+					<h1> Your order was succesful. A confirmation has been sent to your email </h1>
+				</div>
+			</div>
+			<div>
+				<img onclick = "window.open('http://palms-zanzibar.com/press/win-zanzibar-beach-holiday-western-morning-news/')"  class = "advertisement" id = 'ad' style = "cursor: pointer; position: relative; bottom: 0px; height: 100px; width: 1800px; " src = "">
+			</div>
+		</div>
+
+		</body>
+	</html>
+
+
+
+				 

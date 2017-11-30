@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Please Date Me</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+        
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
@@ -16,201 +15,204 @@
 
     <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
     <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyBzP583ZXMjs_BKk1Kxnw9qHrtaZ7jq8Jg",
-            authDomain: "test-project-7b02a.firebaseapp.com",
-            databaseURL: "https://test-project-7b02a.firebaseio.com",
-            projectId: "test-project-7b02a",
-            storageBucket: "test-project-7b02a.appspot.com",
-            messagingSenderId: "916154302194"
-        };
-        firebase.initializeApp(config);
-
+      // Initialize Firebase
+      var config = {
+      apiKey: "AIzaSyBzP583ZXMjs_BKk1Kxnw9qHrtaZ7jq8Jg",
+      authDomain: "test-project-7b02a.firebaseapp.com",
+      databaseURL: "https://test-project-7b02a.firebaseio.com",
+      projectId: "test-project-7b02a",
+      storageBucket: "test-project-7b02a.appspot.com",
+      messagingSenderId: "916154302194"
+      };
+      firebase.initializeApp(config);
     </script>
     <script src="app.js"></script>
 
 </head>
-
+<input id="userid">
 <body>
+<body onload = " LoadAds();">
+  <section>
 
-    <section>
+    <script>MatchMaking()</script>
 
-        <script>MatchMaking()</script>
+    <div class="hero">
+        <nav class="navbar topNav">
+          <div class="container">
+          <div class="navbar-brand">
+          
+            <a href="" class="navbar-item pinkText">
+              PlsDate
+            </a>
 
-        <div class="hero">
-            <nav class="navbar topNav">
-                <div class="container">
-                    <div class="navbar-brand">
+            <span class="navbar-burger burger" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');" data-target="navbarMenuHeroC">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          </div>
 
-                        <a href="" class="navbar-item pinkText">
-                        PlsDate
-                        </a>
-
-                        <span class="navbar-burger burger" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');" data-target="navbarMenuHeroC">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        </span>
-                    </div>
-
-                    <div id="navbarMenuHeroC" class="navbar-menu">
-                        <div class="navbar-end">
-                            <a href="profile.html" class="navbar-item pinkText">
-                              Settings
-                            </a>
-                            <div class="navbar-end">
-                                <a href="index.html" class="navbar-item pinkText">
-                              Logout
-                            </a>
-
-                            </div>
-                        </div>
-                    </div>
-             </nav>
+          <div id="navbarMenuHeroC" class="navbar-menu">
+            <div class="navbar-end">
+              <a href="profile.html" class="navbar-item pinkText">
+                Settings
+              </a> 
+              <div class="navbar-end">
+              <a onclick="signOutFirebase()" class="navbar-item pinkText">
+                Logout
+              </a> 
+              
             </div>
-    </section>
+          </div>
+        </div>
+        </nav>
+    </div>
+  </section>
 
-    <section>
-        <div class="hero is-bold is-danger">
-            <div class="hero-body">
-                <div class="container">
-                    <div class="columns is-vcentered">
-                        <div class="column">
-                            <h1 class="title">Matches</h1>
-                            <h2 class="subtitle">Here you will see your matches if you have any!</h2>
-                        </div>
-                        <div class="column">
-                            <a href="https://www.savetheinternet.com/net-neutrality-what-you-need-know-now">
-                <img src="../images/hankAd.png">
-                </a>
-                        </div>
-                    </div>
+  <section>
+    <div class="hero is-bold is-danger">
+      <div class="hero-body">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column">
+                    <h1 class="title">Matches</h1>
+                    <h2 class="subtitle">Here you will see your matches if you have any!</h2>
+                </div>
+                <div class="column">
+                    <a id='Ad1' href="https://www.savetheinternet.com/net-neutrality-what-you-need-know-now">
+                    <img src="https://raw.githubusercontent.com/jherr029/Dating-Website/master/public/resources/images/hankAd.png">
+                    </a>
                 </div>
             </div>
-
-
-            <div class="hero-foot">
-                <nav class="tabs is-boxed">
-                    <div class="container">
-                        <ul>
-                            <li class="is-active"><a href="">Home</a></li>
-                            <li><a href="messages.html?pgnum=0">Messages</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
         </div>
-    </section>
+    </div>
+
+      <div class="hero-foot">
+          <nav class="tabs is-boxed">
+            <div class="container">
+              <ul>
+                <li class="is-active"><a href="">Home</a></li>
+                <li><a href="messages.html?pgnum=0">Messages</a></li>
+                <li><a href="makeEvent.html">Make an Event</a></li>
+                <li><a href = "viewEvent.html?arrnum=0">View Events</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+    </div>
+  </section>
 
 
-    <section class="grayBg">
-        <br>
-        <div class="container">
-            <div class="box grayBg">
-                <div class="card">
-                    <div class="card-image">
-                        <figure class="image is-3by2">
-                            <img id="myimg" onError="this.src = 'https://raw.githubusercontent.com/jherr029/Dating-Website/master/public/resources/images/cat.png'" />
-                        </figure>
+  <script>
+    window.onload = function(){
+        // replace ten with var for percentage
+        var percentVar = 10 + '%'
+    
+        document.getElementById('percent').innerHTML = percentVar;
+    };
+  </script>
+
+
+
+  <section class="grayBg">
+      <br>
+      <div class="container">
+          <div class="box grayBg">
+              <div class="card">
+                  <div class="card-image">
+                    <figure class="image is-3by2">
+                      <img id="myimg" onError="this.src = 'https://raw.githubusercontent.com/jherr029/Dating-Website/master/public/resources/images/cat.png'" />
+                    </figure>
+                  </div>
+                  
+
+                  <div class="card-content cardTopBorder">
+                    <div class="media">
+                      <div class="media-left">
+                        <h1 id="percent" class="pinkText is-size-1"></h1>
+                      </div>
+                      <div class="media-content">
+                        <p id="nameHolder" class="title is-4"></p>
+                        <p id="nummatch" class="subtitle is-6">Age</p>
+                      </div>
                     </div>
-
-
-                    <div class="card-content cardTopBorder">
-                        <div class="media">
-                            <div class="media-left">
-                                <h1 id="percent" class="pinkText is-size-1"></h1>
-                            </div>
-                            <div class="media-content">
-                                <p id="nameHolder" class="title is-4"></p>
-                                <p id="nummatch" class="subtitle is-6">Age</p>
-                            </div>
-                        </div>
-
-                        <progress id="bar" class="progress is-danger" value="50" max="100"> </progress>
-                        <hr>
-
+                
+                    <progress id="bar" class="progress is-danger" value="50" max="100"> </progress>
+                    <hr>
+                
                         <article class="message is-danger">
                             <div class="message-header">
-                                <p><strong>Traits</strong></p>
-                                <button class="delete" aria-label="delete" onclick="hideElement('traitID')"></button>
+                              <p><strong>Traits</strong></p>
+                              <button class="delete" aria-label="delete" onclick="hideElement('traitID')"></button>
                             </div>
                             <div id="traitID" class="message-body" value="">
-                                
+                            
                             </div>
-                        </article>
-
-
+                          </article>
+                  
+                          
                         <article class="message is-danger">
                             <div class="message-header">
-                                <p><strong>Likes</strong></p>
-                                <button class="delete" aria-label="delete" onclick="hideElement('likesID')"></button>
+                              <p><strong>Likes</strong></p>
+                              <button class="delete" aria-label="delete" onclick="hideElement('likesID')"></button>
                             </div>
                             <div id="likesID" class="message-body">
-                                
+                             
                             </div>
-                        </article>
+                          </article>
+                                          
 
-
-                        <article class="message is-danger">
-                            <div class="message-header">
+                          <article class="message is-danger">
+                              <div class="message-header">
                                 <p><strong>Dislikes</strong></p>
                                 <button class="delete" aria-label="delete" onclick="hideElement('dislikesID')"></button>
-                            </div>
-                            <div id="dislikesID" class="message-body">
-                               
-                            </div>
-                        </article>
-
-                        <article class="message is-danger">
-                            <div class="message-header">
+                              </div>
+                              <div id="dislikesID" class="message-body">
+                              
+                              </div>
+                          </article>
+                    
+                          <article class="message is-danger">
+                              <div class="message-header">
                                 <p><strong>About Me</strong></p>
                                 <button class="delete" aria-label="delete" onclick="hideElement('aboutMeID')"></button>
-                            </div>
-                            <div id="aboutMeID" class="message-body">
-                                
-                            </div>
-                        </article>
-
-                        <div class="container">
-                          <a onclick="blockUser()" class="button is-warning">Block User</a>
-                        </div>
-
-                        <!-- HIDE ELEMENTS -->
-                        <script>
-                            function hideElement(ele) {
+                              </div>
+                              <div id="aboutMeID" class="message-body">
+                              
+                              </div>
+                          </article>
+                          
+                    
+              
+                          <!-- HIDE ELEMENTS -->
+                          <script>
+                          function hideElement(ele) {
                                 var element = document.getElementById(ele)
-
+                          
                                 console.log('test' + element)
-
-                                if (element.style.display === "none") {
-                                    element.style.display = "block"
+                          
+                                if ( element.style.display === "none") {
+                                  element.style.display = "block"
                                 } else {
-                                    element.style.display = "none"
+                                  element.style.display = "none"
                                 }
-                            };
-
-                        </script>
-
-                    </div>
-                    <footer class="card-footer">
-                        <a id="prevpg" onclick="prevpage()" class="card-footer-item pinkText"><strong>Previous</strong></a>
-                        <a onclick="gotoMessenger()" class="card-footer-item pinkText"><strong>Message</strong></a>
-                        <a id="nextpg" onclick="nextpage()" class="card-footer-item pinkText"><strong>Next</strong></a>
+                              };
+                            </script>
+              
+                  </div>
+                  <footer class="card-footer">
+                      <a id="prevpg" onclick="prevpage()" class="card-footer-item pinkText"><strong>Previous</strong></a>
+                      <a onclick="gotoMessenger()" class="card-footer-item pinkText"><strong>Message</strong></a>
+                      <a id="nextpg"onclick="nextpage()" class="card-footer-item pinkText"><strong>Next</strong></a>
                     </footer>
                 </div>
-            </div>
-        </div>
-
-        <div>
-            <img onclick = "window.open('http://palms-zanzibar.com/press/win-zanzibar-beach-holiday-western-morning-news/')"  class = "advertisement" id = 'ad' style = "cursor: pointer; position: relative; bottom: 0px; height: 100px; width: 1800px; " src = "">
-        </div>
-
+          </div>
+      </div>
+      
         <br>
-    </section>
+  </section>
 
 </body>
-
 </html>
 
 

@@ -53,6 +53,17 @@ function saveFirebase(){
 	}
 }
 
+function signOutFirebase(){
+	const auth = firebase.auth();
+	const promise = auth.signOut();
+	promise.then(function(firebaseUser){
+		window.location.href = "index.html";
+	})
+	.catch(function(error){
+		console.log(error);
+	});
+}
+
 function loginFirebase(){
 	//elements
 	const txtEmail = document.getElementById('txtEmail');
@@ -174,6 +185,7 @@ function MatchMaking(){
 	
 	var fullurl = window.location.href;
 	var arrnum = fullurl.slice(fullurl.indexOf("?arrnum="+4), fullurl.length);
+	console.log(arrnum);
 	
 	
 	var match8 =[], match7 =[], match6 =[ ], match5 =[], match4 =[], match3 =[], match2 =[], match1 =[], match0 =[];
@@ -196,10 +208,10 @@ function MatchMaking(){
 						.then(function(snapshot){
 							const cuser = snapshot.child(userid);
 							snapshot.forEach(function(childSnapshot){
-							
-								var blocked_user = checkBlocked(childSnapshot.child("userid").val(), userid);
-								console.log(blocked_user);
-								if(((userid != childSnapshot.child("userid").val()) && (childSnapshot.hasChildren())) && (blocked_user == true)){		
+								
+								if((userid != childSnapshot.child("userid").val()) && (childSnapshot.hasChildren()) 
+									&& (cuser.child("Pref").val() == childSnapshot.child("Sex").val()) 
+									&& (cuser.child("Sex").val() == childSnapshot.child("Pref").val())) {		
 										var i = 0;
 									
 										if(cuser.child("Artsy").val() == childSnapshot.child("Artsy").val()){
@@ -543,14 +555,14 @@ function loadMessages(){
 								const idpath = firebase.database().ref('Users/' + id2 + '/name');
 								idpath.on('value', function(datasnapshot){
 								
-									print_messages(datasnapshot.val(), id2);
+									print_messages(datasnapshot.val(), id2, messid);
 								});
 							}
 							else if(id2 == userid){
 								const idpath = firebase.database().ref('Users/' + id1 + '/name');
 								idpath.on('value', function(datasnapshot){
 
-									print_messages(datasnapshot.val(), id1);
+									print_messages(datasnapshot.val(), id1, messid);
 									
 								});
 							}
@@ -564,7 +576,7 @@ function loadMessages(){
 	});
 }
 
-function print_messages(username, userid){
+function print_messages(username, userid, messid){
 	var articleMessage  = document.createElement('article')   // article 
         var headerP         = document.createElement('p')         // p element
         var strongName      = document.createElement('strong')    // bold the name
@@ -572,9 +584,13 @@ function print_messages(username, userid){
         var divHeader       = document.createElement('div')       // message header
         var divBody         = document.createElement('div')       // message body
 
-
+		
+		
         strongName.innerText  = username  // header title
-        divBody.innerText     = "Message!"  // body
+        var fb = firebase.database().ref("messages/" + messid + "/mostrecent");
+        fb.on('value', function(datasnapshot){
+			divBody.innerText = datasnapshot.val();
+		});
 
         buttonSec.href            = "/Messaging/messaging.html?user=" + userid      // the location change    
         articleMessage.className  = "message is-danger"
@@ -659,6 +675,7 @@ function LoadAds()
 			
 				if(prem == false )
 				{
+					document.getElementById('ad1').src = "../images/hankAd.png"
 					document.getElementById('ad').src ="https://d2rw7fmapbgpu6.cloudfront.net/stores/beta-sf608504prep.storefront.co.za/pictures/636341365304433773/sitewide-sale-pb-gif-(1800x200).gif";
 				}
 			});
