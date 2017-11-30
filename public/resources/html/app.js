@@ -82,11 +82,32 @@ function loginFirebase(){
 		});
 }
 
+var temp
+
+function updatePic(input){
+	console.log('i am in')
+
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
+
+		reader.onload = function (e) {
+			$('#myimg')
+				.attr('src', e.target.result)
+				// .width(150)
+				// .height(200);
+		};
+
+		reader.readAsDataURL(input.files[0]);
+	}
+}
+
 function setAttributes(){
 	const auth = firebase.auth();
 	var userid = auth.currentUser.uid;
 	const fb=firebase.database().ref().child('Users');
 	
+	var profilepic
+
 	var Premium = false;
 	const prem = fb.child(userid);
 	prem.on('value', function(datasnapshot){
@@ -94,6 +115,22 @@ function setAttributes(){
 			Premium = datasnapshot.child('Premium').val();
 		}
 	});
+
+
+	// if there is user submission for a picture
+	if ( $(myimg).attr("src") != null ) {
+		profilepic = $(myimg).attr("src")
+
+	} else {
+		// if there is no input for picture
+		// use the image in database
+
+		prem.on('value', function(datasnapshot) {
+			profilepic = datasnapshot.val().profilepic
+
+	})
+	}
+
 	
 	const Artsy = document.getElementById('checkbox').checked
 	const Nerdy = document.getElementById('checkbox2').checked
@@ -112,17 +149,19 @@ function setAttributes(){
 	const Birthday= document.getElementById('Birthday').value
 	const Sex= document.getElementById('Sex').value
 	const Pref= document.getElementById('Pref').value
-	
-	const profilepic = document.getElementById('myimg').getElementsByTagName("img")[0].src
-	
-	console.log('the img -> ' + profilepic)
+
+
+	// profilepic = document.getElementById('myimg').getElementsByTagName("img")[0].src
 
 	attributes = {userid, Premium, name, profilepic, Artsy, Nerdy, Sporty, Foody, Kinky, Quirky, Messy, AboutMe, Sex, Pref, Likes, Dislikes, Birthday}
 	
 	var AttPromise = fb.child(userid + '/').update(attributes);
+	console.log('continuing')
+	
 	AttPromise.then(function(value){
 		window.location.href = "matches.html?arrnum=0";
 	});
+	
 }
 
 function gotoownprofile(){
@@ -526,7 +565,7 @@ function loadDetails(){
 				
 				const MyImg = fb.child("profilepic");
 				MyImg.on('value', function(datasnapshot){
-					
+					if(!datasnapshot.val()) document.getElementById('myimg').src = 'https://raw.githubusercontent.com/jherr029/Dating-Website/dev/public/resources/images/cat.png'
 					document.getElementById('myimg').src = datasnapshot.val();
 				});
 			}
