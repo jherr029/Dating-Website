@@ -52,7 +52,7 @@
 				storageRef.child('profile_pic/' + file.name).getDownloadURL().then(function(url) {
 				var img = document.getElementById('myimg');
 					img.src = url;
-				console.log(img.src);
+				    console.log(img.src);
 				});
 			
 			});
@@ -325,23 +325,63 @@
 
         <div class="container">
 			<div class="box">
-				<div class="field">
-					
-				 <img id = "myimg" alt = 'No Profile Pic'>
-				  <div class="file is-danger has-name is-boxed">
-					<label class="file-label">
-					    <input type="file" value="upload" id="fileButton"></input>
-					  
-					</label>
-				  </div>
+
+                <img id = "myimg"  class="issquare" alt = 'No Profile Pic'>
+
+                  <div class="field">
+                        <div class="file is-danger has-name is-boxed">
+                          <label class="file-label">
+                            <input class="file-input" type="file" value="upload" id="files">
+                            <span class="file-cta">
+                              <span class="file-icon">
+                                <i class="fa fa-cloud-upload"></i>
+                              </span>
+                              <span class="file-label">
+                                Submit Photo
+                              </span>
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+
+
 				</div>
 			</div>
         </div>
+
+
+     
+
+        <br><br>
 
         <div class="container">
             <input onclick="setAttributes()" class="button is-danger is-pulled-right" type="submit" value="Submit">
             <br>
         </div>
+
+
+        <script>
+        if (window.FileReader) {
+            function handleFileSelect(evt) {
+                var files = evt.target.files;
+                var f = files[0];
+                var reader = new FileReader();
+                
+                reader.onload = (function(theFile) {
+                    return function(e) {
+                    document.getElementById('myimg').innerHTML = ['<img src="', e.target.result,'" title="', theFile.name, '" width="300"/>'].join('');
+                    };
+                })(f);
+            
+                reader.readAsDataURL(f);
+            }
+            } else {
+            alert('This browser does not support FileReader');
+            }
+            
+        document.getElementById('files').addEventListener('change', handleFileSelect, false);
+
+        </script>
 
         <br><br>
 

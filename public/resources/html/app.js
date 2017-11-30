@@ -113,8 +113,10 @@ function setAttributes(){
 	const Sex= document.getElementById('Sex').value
 	const Pref= document.getElementById('Pref').value
 	
-	var profilepic = document.getElementById('myimg').src;
+	const profilepic = document.getElementById('myimg').getElementsByTagName("img")[0].src
 	
+	console.log('the img -> ' + profilepic)
+
 	attributes = {userid, Premium, name, profilepic, Artsy, Nerdy, Sporty, Foody, Kinky, Quirky, Messy, AboutMe, Sex, Pref, Likes, Dislikes, Birthday}
 	
 	var AttPromise = fb.child(userid + '/').update(attributes);
@@ -675,8 +677,12 @@ function LoadAds()
 			
 				if(prem == false )
 				{
-					document.getElementById('ad1').src = "../images/hankAd.png"
-					document.getElementById('ad').src ="https://d2rw7fmapbgpu6.cloudfront.net/stores/beta-sf608504prep.storefront.co.za/pictures/636341365304433773/sitewide-sale-pb-gif-(1800x200).gif";
+
+					// FIX THIS two lines. error with src
+
+
+					//document.getElementById('ad1').src = "../images/hankAd.png"
+					//document.getElementById('ad').src ="https://d2rw7fmapbgpu6.cloudfront.net/stores/beta-sf608504prep.storefront.co.za/pictures/636341365304433773/sitewide-sale-pb-gif-(1800x200).gif";
 				}
 			});
 		}
